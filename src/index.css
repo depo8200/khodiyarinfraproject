@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #FFFFFF;
+    --bg-surface: #F8FAFC;
+    --bg-elevated: #F0F9FF;
+    --accent-sky: #0284C7;
+    --accent-sky-hover: #0369A1;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #0F172A;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Professional Industrial Pattern Helpers - Skyblue Theme */
+.bg-industrial-dots {
+  background-image: radial-gradient(#0284C7 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.bg-industrial-grid {
+  background-image: linear-gradient(to right, rgba(2, 132, 199, 0.08) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(2, 132, 199, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
