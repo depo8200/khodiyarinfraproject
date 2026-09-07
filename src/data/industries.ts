@@ -8,7 +8,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     featured: true,
     tagline: 'High-Thermal Integrity Steel Infrastructure for Controlled Atmosphere & Refrigerated Warehouses',
     description: 'Cold storage facilities require specialized structural steel engineering to eliminate thermal bridging, support heavy refrigeration condenser loads, and withstand extreme internal-to-external temperature differentials without structural condensation or envelope degradation. Khodiyar Infraproject engineers customized cold store superstructures featuring airtight envelope interfaces, high-eave racking clearances, insulated PUF/PIR sandwich panel integration, and specialized vapor-barrier sub-frames across Gujarat and Western India.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753396386.jpg',
     keyRequirements: [
       'Zero thermal bridging at primary steel-to-panel contact interfaces',
       'High-bay structural clearance (12m to 20m+) for automated ASRS high-density pallet racking',
@@ -34,7 +34,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Manufacturing Plants & Factories',
     tagline: 'Expansive Clear-Span Facilities Built for Continuous Production & Heavy Machinery',
     description: 'Production floors require continuous, unobstructed workflow layouts with dedicated overhead crane runways, vibration-isolated machine foundations, and dynamic ventilation systems. Khodiyar Infraproject designs and erects robust steel plant buildings tailored to automotive, engineering, chemical, and plastics manufacturing in Vadodara, Halol, Savli, and beyond.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788752616471.jpg',
     keyRequirements: [
       'Unobstructed clear spans enabling flexible assembly line configurations',
       'Integrated crane runway beams for 5T to 50T overhead material handling',
@@ -60,7 +60,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Warehouses & Distribution Centers',
     tagline: 'Maximum Cubic Storage Efficiency & Rapid Turnkey Logistics Parks',
     description: 'Modern supply chains demand large-format logistics facilities with optimal column grids, high clear heights for vertical racking, and numerous loading dock canopies. Our warehouse solutions optimize steel tonnage while providing maximum volumetric storage capacity and rapid project turnaround times.',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753402987.jpg',
     keyRequirements: [
       'Wide bay spacing allowing unimpeded forklift lanes and high-bay racking',
       'Large clear heights from 9m to 16m for high cubic capacity utilization',
@@ -86,7 +86,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Heavy Industrial Buildings',
     tagline: 'Rugged Steel Frames for Foundries, Steel Mills, Process Plants & Power Houses',
     description: 'Heavy industrial environments face extreme physical stresses—high ambient heat from furnaces, heavy dynamic crane impact, chemical fumes, and multi-tier process equipment. We engineer heavy structural frames utilizing thick structural plate girders, box columns, and high-strength friction grip bolting.',
-    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753404846.jpg',
     keyRequirements: [
       'Resistance to severe cyclical dynamic loads and machinery vibrations',
       'Heavy EOT crane runway support (30T to 75T+) with surge truss bracing',
@@ -112,7 +112,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Light Industrial Buildings',
     tagline: 'Economical, Rapid & Functional Sheds for Small-to-Medium Industrial Enterprises',
     description: 'For small-to-medium enterprises, assembly units, fabrication shops, and packaging lines, Khodiyar Infraproject delivers cost-effective PEB sheds. We provide high-value engineering that maximizes interior space while maintaining low material expenditure and rapid site erection.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753411139.jpg',
     keyRequirements: [
       'Budget-optimized structural design with minimal dead steel weight',
       'Fast delivery and erection timelines (typically 3 to 6 weeks on-site)',
@@ -138,7 +138,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Workshops & Industrial Garages',
     tagline: 'Functional, Open-Bay Spaces for Fleet Maintenance, Repair & Technical Facilities',
     description: 'Industrial maintenance workshops and commercial vehicle garages require wide access bays, high clear eaves for vehicle lifts, durable concrete-anchored columns, and ample natural ventilation and lighting. Our steel workshop buildings provide unobstructed maneuvering room and heavy overhead hoist capabilities.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753412524.jpg',
     keyRequirements: [
       'Wide entrance bays accommodating industrial trucks, trailers, and machinery',
       'Overhead monorail hoists and jib cranes for engine and component maintenance',

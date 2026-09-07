@@ -8,7 +8,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Engineering',
     shortDesc: 'Precision structural analysis, 3D BIM modeling, and Design-for-Manufacture (DFM) optimization tailored for Indian wind and seismic codes.',
     fullDesc: 'Khodiyar Infraproject delivers end-to-end structural engineering design directly from our technical bureau. Rather than outsourcing engineering calculations to detached consultants, our in-house engineering team works side-by-side with our fabrication and erection crews. We specialize in PEB structural optimization, tapered built-up frames, portal rigid frames, truss systems, crane runway beams, and connection detailing. By integrating structural safety with manufacturing efficiency, we optimize steel tonnage, eliminate site fitting errors, and accelerate project delivery times without compromising IS 800 / IS 875 compliance.',
-    heroImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754637532.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=800&q=80'
@@ -54,7 +54,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Fabrication',
     shortDesc: 'Automated submerged arc welding, CNC cutting, shot blasting, and precision assembly of high-yield structural steel members.',
     fullDesc: 'Our structural steel fabrication operations translate digital engineering files into rugged, millimeter-accurate steel assemblies. Utilizing high-yield structural steel plates (E250, E350, ASTM A572), our fabrication workflow utilizes automatic continuous Submerged Arc Welding (SAW) for built-up H-beams, plasma profiling, multi-spindle drilling, and standardized edge preparation. Every beam, column, rafter, and purlin undergoes rigorous quality inspections—including ultrasonic and dye penetrant testing of critical weld seams—followed by high-grade industrial primer coating to resist weathering during transit.',
-    heroImage: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754638449.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80'
@@ -100,7 +100,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Execution',
     shortDesc: 'Rapid, safe, crane-assisted structural erection on-site with certified riggers and disciplined HSE protocols across Gujarat.',
     fullDesc: 'Erection is where engineering integrity meets physical reality. Khodiyar Infraproject provides comprehensive turnkey erection managed by seasoned site engineers and heavy-lift rigging specialists. Because our own factory fabricates the members, our erection teams work with components designed with matched bolt-holes and pre-indexed shipping codes. We orchestrate heavy mobile cranes, aerial manlifts, perimeter safety nets, and torque-controlled tensioning for High-Strength Friction Grip (HSFG) bolts. From anchor bolt alignment verification to the final ridge capping, we deliver turnkey structures ready for immediate fit-out.',
-    heroImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754639780.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80'
@@ -146,7 +146,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Structures',
     shortDesc: 'Custom-engineered industrial PEB steel structures offering wide clear spans, maximum cubic volume, and 40% faster execution.',
     fullDesc: 'Pre-Engineered Buildings (PEBs) engineered by Khodiyar Infraproject represent the gold standard for industrial warehouses, logistics parks, factories, and clear-span facilities. By tailoring steel taper thicknesses strictly in proportion to internal bending moment diagrams, PEBs achieve optimal structural economy compared to conventional heavy rolled steel. We engineer complete PEB envelopes including primary rigid frames, cold-formed galvanized Z/C purlins, standing seam or screw-down roof cladding, polycarbonate daylight skylights, turbo ventilators, crane brackets, and insulated wall panels.',
-    heroImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754641137.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
@@ -192,7 +192,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Structures',
     shortDesc: 'Engineering and fabrication for heavy industrial plants, furnace buildings, multi-tier process towers, and high-tonnage crane bays.',
     fullDesc: 'When industrial projects involve severe dynamic loads, high-capacity overhead cranes (20T to 75T+), multi-story process equipment, or intense operational vibrations, Khodiyar Infraproject delivers heavy structural steel engineering. We manufacture built-up box sections, heavy plate girders, pipe racks, heavy truss bents, and vibrating screen support structures. Our fabrication protocols enforce strict joint penetration, pre-heating of thick plates, post-weld stress relief where required, and full traceability of all structural plate batches.',
-    heroImage: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754642347.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=800&q=80'
@@ -238,7 +238,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Structures',
     shortDesc: 'Rapidly deployable modular industrial buildings, plant offices, control rooms, security blocks, and scalable structural pods.',
     fullDesc: 'Modern industrial facilities require agility. Khodiyar Infraproject designs and manufactures modular steel structures that allow industrial plants to deploy operational space in days rather than months. Ideal for in-plant administrative offices, electrical control rooms (MCCs), QA testing laboratories, mezzanine modules, and security gate complexes, our modular structures combine light-gauge structural steel frames, insulated sandwich wall systems, pre-routed conduits, and durable architectural finishes.',
-    heroImage: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754967044.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80'
@@ -284,7 +284,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Engineering',
     shortDesc: 'Unified engineering-to-shopfloor workflow delivering synchronized cutting schedules, nested steel layouts, and minimal scrap.',
     fullDesc: 'The biggest bottleneck in structural construction occurs when architects and fabricators speak different languages. Khodiyar Infraproject bridges this gap through a unified Designing & Production ecosystem. Engineering algorithms directly drive automated nesting software, minimizing raw steel scrap to under 3%. Production manifests specify exact welding passes, hole diameters, and stiffener orientations before raw steel plates even reach the cutting table. This synchronous loop prevents field rework and guarantees that every component delivered to the site fits precisely without on-site cutting or re-drilling.',
-    heroImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754971704.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80'
@@ -330,7 +330,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Execution',
     shortDesc: 'Synchronized Just-in-Time structural dispatch matched to site erection order, eliminating yard clutter and transit damage.',
     fullDesc: 'At Khodiyar Infraproject, logistics is treated as an essential phase of structural engineering rather than a mere transport transaction. Uncoordinated structural deliveries choke job sites, risk coating scratches, and cause expensive crane idle time. We practice Synchronized Just-in-Time (JIT) logistics: dispatches are packaged and scheduled in the exact sequence required by our erection crew. Bay-1 primary columns and anchor plates ship first, followed by portal rafters, roof purlins, and wall cladding in calibrated stages. Custom timber dunnage and heavy strapping prevent transit distortion of slender steel flanges.',
-    heroImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754973638.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80'
@@ -376,7 +376,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Execution',
     shortDesc: 'Comprehensive on-site structural assembly, alignment verification, torque inspection, and weather-tight building envelope sealing.',
     fullDesc: 'The final milestone in our end-to-end workflow is rigorous Erection & Installation. Our field engineers bring extensive experience in complex industrial steel installations. We deploy heavy mobile cranes, certified rigging equipment, laser alignment tools, and hydraulic torque wrenches to assemble primary frames with microscopic deviation limits. Once the skeleton is erected and cross-braced, our installation crews install cold-formed purlins, sag rods, gutters, flashings, and high-performance roof and wall panels to ensure complete weather-tightness and longevity.',
-    heroImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/regenerated_image_1788754975455.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80'

@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageSquare, X } from 'lucide-react';
 import { COMPANY_CONFIG } from '../../data/company';
 
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger subtle pop-in and fade-in entrance animation on mount
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   const whatsappUrl = `https://wa.me/${COMPANY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello Khodiyar Infraproject, I would like to inquire about PEB / structural steel solutions.')}`;
 
   return (
-    <div className="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-30 flex flex-col items-end gap-2 select-none">
+    <div
+      className={`fixed bottom-20 md:bottom-8 right-4 md:right-8 z-30 flex flex-col items-end gap-2 select-none transition-all duration-500 ease-out transform ${
+        isVisible
+          ? 'opacity-100 scale-100 translate-y-0'
+          : 'opacity-0 scale-75 translate-y-4 pointer-events-none'
+      }`}
+    >
       {/* Tooltip bubble on desktop */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2 bg-white/95 border border-sky-200 rounded-2xl py-2 px-3.5 shadow-2xl backdrop-blur-md animate-in slide-in-from-bottom-2 duration-300 max-w-xs">

@@ -106,7 +106,7 @@ export const WhyChooseUsPage: React.FC<WhyChooseUsPageProps> = ({ onNavigate, on
           </div>
           <div className="lg:col-span-5 h-56 sm:h-64 rounded-2xl overflow-hidden border border-sky-200 shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80"
+              src="/regenerated_image_1788755466755.jpg"
               alt="Industrial precision steel engineering"
               className="w-full h-full object-cover"
             />

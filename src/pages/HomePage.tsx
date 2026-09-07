@@ -197,9 +197,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
                   className="aspect-square relative rounded-xl overflow-hidden border border-sky-300 flex flex-col justify-between p-4 transform translate-y-3 sm:translate-y-5 cursor-pointer group shadow-sm hover:shadow-md transition-all"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80"
+                    src="/regenerated_image_1788752610485.jpg"
                     alt="Factory Steel Fabrication and SAW Welding"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
 
@@ -224,9 +225,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
                   className="aspect-square relative rounded-xl overflow-hidden border border-sky-300 flex flex-col justify-between p-4 cursor-pointer group shadow-sm hover:shadow-md transition-all"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80"
+                    src="/regenerated_image_1788752611944.jpg"
                     alt="Heavy Structural Steel Logistics and Warehouse Storage"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
 
@@ -251,9 +253,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
                   className="aspect-square relative rounded-xl overflow-hidden border border-sky-400 flex flex-col justify-between p-4 transform translate-y-3 sm:translate-y-5 cursor-pointer group shadow-sm hover:shadow-md transition-all"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=600&q=80"
+                    src="/regenerated_image_1788752613481.jpg"
                     alt="Turnkey PEB Structural Installation on Site"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-950/40 to-transparent" />
 
@@ -297,9 +300,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border border-sky-200 shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1000&q=80"
+                src="/regenerated_image_1788752621413.png"
                 alt="Khodiyar Infraproject steel structural installation in Gujarat"
                 className="w-full h-96 object-cover"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-sky-200 shadow-md">
@@ -369,94 +373,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 3. CORE SERVICES (Previewing all 9 Services) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-sky-100 pb-6">
-          <div>
-            <span className="text-xs font-mono uppercase text-sky-600 font-bold tracking-widest">
-              Comprehensive Capabilities
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 font-sans mt-1">
-              Our Core Services (9)
-            </h2>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1 max-w-2xl">
-              End-to-end structural steel engineering and execution. Every service is backed by our dedicated in-house technical team.
-            </p>
-          </div>
-          <button
-            onClick={() => onNavigate('services')}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-semibold border border-sky-200 transition-colors cursor-pointer w-fit"
-          >
-            <span>View All Detailed Service Pages</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        {/* 9 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES_DATA.map((srv) => (
-            <div
-              key={srv.id}
-              className="bg-white border border-sky-200 rounded-2xl overflow-hidden hover:border-sky-500 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-xl hover:-translate-y-1"
-            >
-              {/* Service Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={srv.heroImage}
-                  alt={srv.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-sky-600 text-white text-[10px] font-mono font-bold uppercase shadow-sm">
-                  {srv.category}
-                </span>
-              </div>
-
-              {/* Service Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors font-sans">
-                    {srv.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
-                    {srv.shortDesc}
-                  </p>
-                </div>
-
-                {/* Key Benefit Highlights */}
-                <div className="space-y-1.5 pt-2 border-t border-sky-100 text-[11px] text-slate-600">
-                  {srv.keyBenefits.slice(0, 2).map((b, i) => (
-                    <div key={i} className="flex items-start gap-1.5">
-                      <span className="text-sky-600 font-bold mt-0.5">•</span>
-                      <span className="line-clamp-1">{b}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="pt-2 flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => onNavigate('service-detail', srv.slug)}
-                    className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>Explore Specifications</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <a
-                    href={`tel:${COMPANY_CONFIG.phoneRaw}`}
-                    className="p-2 rounded-lg bg-sky-50 hover:bg-sky-600 hover:text-white text-sky-700 transition-colors"
-                    title="Call Now for this service"
-                    aria-label={`Call now about ${srv.title}`}
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -604,9 +520,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
             <div className="lg:col-span-5">
               <div className="overflow-hidden border border-sky-200 shadow-md rounded-xl relative h-64 sm:h-80">
                 <img
-                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80"
+                  src="/regenerated_image_1788753025558.jpg"
                   alt="Cold Storage Facility Steel Framing by Khodiyar Infraproject"
                   className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-white bg-slate-900/90 p-2.5 border border-sky-200/50 rounded-lg backdrop-blur-sm">
@@ -630,6 +547,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
                     src={ind.image}
                     alt={ind.title}
                     className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 </div>
@@ -701,6 +619,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
                   src={proj.image}
                   alt={proj.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 <span className="absolute top-3 left-3 px-2.5 py-0.5 bg-sky-600 text-[10px] font-mono text-white rounded uppercase tracking-widest font-bold shadow-sm">

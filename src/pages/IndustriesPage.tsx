@@ -136,6 +136,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
                 src={coldStorage.image}
                 alt="Cold Storage Facility by Khodiyar Infraproject"
                 className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl border border-sky-200/40 text-xs font-mono text-white">
@@ -169,6 +170,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
                     src={ind.image}
                     alt={ind.title}
                     className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 text-xs font-mono text-white bg-slate-900/80 backdrop-blur-md p-2 rounded-lg border border-sky-200/40 uppercase tracking-wider">

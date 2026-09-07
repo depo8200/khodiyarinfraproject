@@ -10,7 +10,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: '24m – 48m Clear Span',
     typicalHeight: '8m – 14m Eave Height',
     steelGrade: 'IS 2062 E350 / ASTM A572 Gr 50',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753735467.jpg',
     applications: [
       'Automotive component assembly plants',
       'Engineering machinery manufacturing facilities',
@@ -33,7 +33,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: '30m – 60m Multi-Span',
     typicalHeight: '9m – 16m Clear Eave',
     steelGrade: 'High-Tensile Built-Up Steel & Cold-Formed Secondary',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
+    image: '/pebwarehouse.jpg',
     applications: [
       '3PL central logistics distribution centers',
       'Raw material & bulk inventory warehouses',
@@ -56,7 +56,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: '18m – 36m Clear Span',
     typicalHeight: '10m – 18m High Bay',
     steelGrade: 'High-Strength Steel with High-Build Anti-Corrosive Coating',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753953811.jpg',
     applications: [
       'Agricultural & horticulture cold stores',
       'Pharmaceutical cold chain storage',
@@ -79,7 +79,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: 'Engineered to dynamic equipment footprint',
     typicalHeight: '15m – 32m Multi-Story',
     steelGrade: 'IS 2062 E350 BR/B0 Thick Heavy Plates',
-    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753954925.jpg',
     applications: [
       'Foundry & metal processing buildings',
       'Power generation & turbine houses',
@@ -102,7 +102,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: '15m – 30m Clear Span',
     typicalHeight: '6m – 10m Eave Height',
     steelGrade: 'IS 2062 E250 / E350 Structural Steel',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753961229.jpg',
     applications: [
       'Ancillary industrial workshops and sheds',
       'Assembly and packaging halls',
@@ -125,7 +125,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: 'Custom modular dimensions (3m x 6m up to multi-module)',
     typicalHeight: '3m – 6m',
     steelGrade: 'Structural Hollow Sections (SHS/RHS) & Light Gauge Framing',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753960179.jpg',
     applications: [
       'In-plant supervisory & managerial offices',
       'Electrical control room (MCC) enclosures',
@@ -148,7 +148,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     typicalSpan: '12m – 24m Clear Span',
     typicalHeight: '6m – 9m Eave Height',
     steelGrade: 'Standard High-Yield Structural Steel',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80',
+    image: '/regenerated_image_1788753963377.jpg',
     applications: [
       'Heavy fleet vehicle repair depots',
       'Machinery overhaul and refurbishment shops',
@@ -164,105 +164,3 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
   }
 ];
 
-// Scalable architecture for future real project records
-export interface RealProjectRecord {
-  id: string;
-  projectName: string;
-  location: string;
-  client: string;
-  year: string;
-  projectType: string;
-  tonnage?: string;
-  areaSqFt?: string;
-  specifications: { label: string; value: string }[];
-  images: string[];
-  description: string;
-}
-
-// Verified projects executed across Gujarat industrial corridors
-export const REAL_PROJECTS_DATABASE: RealProjectRecord[] = [
-  {
-    id: 'vadodara-auto-plant',
-    projectName: 'High-Bay Auto Component Manufacturing Facility',
-    location: 'Makarpura GIDC, Vadodara, Gujarat',
-    client: 'Industrial Tier-1 Automotive Supplier',
-    year: '2024',
-    projectType: 'Pre-Engineered Manufacturing Plant',
-    tonnage: '380 MT High-Yield Steel',
-    areaSqFt: '45,000 Sq. Ft.',
-    specifications: [
-      { label: 'Clear Span', value: '32 Meter Unobstructed' },
-      { label: 'Crane Rating', value: '15 Ton Double Girder EOT' },
-      { label: 'Eave Height', value: '10.5 Meters' },
-      { label: 'Completion', value: '4.5 Months' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80'
-    ],
-    description: 'Turnkey structural design, shop fabrication in Halol, and precision site erection of a high-bay facility featuring heavy crane girders and integrated mezzanine offices.'
-  },
-  {
-    id: 'halol-logistics-park',
-    projectName: 'Multi-Bay Supply Chain Distribution Hub',
-    location: 'Halol Industrial Area, Panchmahal, Gujarat',
-    client: 'National 3PL Logistics Group',
-    year: '2023',
-    projectType: 'Heavy PEB Warehousing',
-    tonnage: '520 MT Structural Steel',
-    areaSqFt: '68,000 Sq. Ft.',
-    specifications: [
-      { label: 'Clear Height', value: '12.5 Meters at Eave' },
-      { label: 'Bay Spacing', value: '8.5m Center-to-Center' },
-      { label: 'Flooring Interface', value: 'Laser Screed FM2 Tolerances' },
-      { label: 'Dock Canopies', value: '6m Cantilevered Frontage' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80'
-    ],
-    description: 'Engineered for high-throughput logistics with 12 loading bays, continuous ridge ventilation, and automated smoke-release dampers.'
-  },
-  {
-    id: 'savli-heavy-fabrication-bay',
-    projectName: 'Specialized Industrial Heavy Engineering Bay',
-    location: 'Savli GIDC, Vadodara, Gujarat',
-    client: 'Process Equipment Engineering Firm',
-    year: '2024',
-    projectType: 'Heavy Structural Steel Portal',
-    tonnage: '640 MT Heavy Plate Girders',
-    areaSqFt: '52,000 Sq. Ft.',
-    specifications: [
-      { label: 'Crane Capacity', value: '35 Ton Heavy Duty Runway' },
-      { label: 'Steel Specification', value: 'IS 2062 E350 Grade' },
-      { label: 'Welding Protocol', value: '100% Submerged Arc + NDT' },
-      { label: 'Erection Schedule', value: 'Synchronized JIT Delivery' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80'
-    ],
-    description: 'Constructed to withstand heavy dynamic vibration with deep pile-supported column foundations, full-penetration SAW welded built-up frames, and heavy box purlins.'
-  },
-  {
-    id: 'dahej-pharma-cold-storage',
-    projectName: 'Temperature-Controlled Pharma & Chemical Storage',
-    location: 'Dahej Industrial Zone, Gujarat',
-    client: 'Specialty Chemicals & Pharma Enterprise',
-    year: '2023',
-    projectType: 'Insulated Cold Storage Structure',
-    tonnage: '310 MT Coated Steel',
-    areaSqFt: '36,000 Sq. Ft.',
-    specifications: [
-      { label: 'Operating Temp', value: '2°C to 8°C Controlled' },
-      { label: 'Insulation', value: '120mm PUF Cladding Compatible' },
-      { label: 'Thermal Breaks', value: 'High-Density Neoprene Isolators' },
-      { label: 'Paint System', value: 'Anti-Corrosive Epoxy System' }
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80'
-    ],
-    description: 'High-integrity thermal envelope structural framing with zero thermal-bridging details and roof truss load calculation for heavy suspended refrigeration coils.'
-  }
-];

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PROJECT_CATEGORIES, REAL_PROJECTS_DATABASE } from '../data/projects';
+import { PROJECT_CATEGORIES } from '../data/projects';
 import { COMPANY_CONFIG } from '../data/company';
 import { 
   Building2, 
@@ -180,99 +180,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenQu
         </div>
       </section>
 
-      {/* 3. VERIFIED REAL PROJECTS DATABASE WITH IMAGES */}
-      <section className="p-8 bg-white border border-sky-200 rounded-2xl shadow-xl space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <span className="text-xs font-mono uppercase text-sky-600 font-bold tracking-widest">
-              Live Structural Records
-            </span>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-sans uppercase tracking-tight mt-1">
-              Verified Project Showcase Database
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
-              Representative turnkey projects executed across Vadodara, Halol, Savli, and Dahej industrial corridors with audited tonnage, full-penetration welding, and certified erection.
-            </p>
-          </div>
-
-          <div className="text-xs font-mono text-emerald-700 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-lg w-fit flex items-center gap-2 font-bold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span>Database Connected (2,000+ Tons Audited)</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {REAL_PROJECTS_DATABASE.map((record) => (
-            <div
-              key={record.id}
-              className="bg-white border border-sky-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:border-sky-300 transition-all flex flex-col justify-between"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={record.images[0]}
-                  alt={record.projectName}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <div className="absolute top-3 left-3 flex gap-2">
-                  <span className="px-2.5 py-1 bg-white/95 text-[10px] font-mono text-sky-700 font-bold rounded shadow-sm">
-                    {record.projectType}
-                  </span>
-                  <span className="px-2.5 py-1 bg-sky-600 text-[10px] font-mono text-white font-bold rounded shadow-sm">
-                    {record.year}
-                  </span>
-                </div>
-                <div className="absolute bottom-3 left-3 right-3 text-white text-xs font-mono flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-sky-300 flex-shrink-0" />
-                  <span className="truncate">{record.location}</span>
-                </div>
-              </div>
-
-              <div className="p-6 space-y-4">
-                <h3 className="text-base sm:text-lg font-black text-slate-900 font-sans uppercase tracking-tight">
-                  {record.projectName}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
-                  {record.description}
-                </p>
-
-                <div className="grid grid-cols-2 gap-2 text-xs font-mono bg-sky-50/70 p-3 rounded-xl border border-sky-200/80">
-                  {record.tonnage && (
-                    <div>
-                      <span className="text-slate-500 block text-[10px]">Tonnage</span>
-                      <span className="text-sky-700 font-bold">{record.tonnage}</span>
-                    </div>
-                  )}
-                  {record.areaSqFt && (
-                    <div>
-                      <span className="text-slate-500 block text-[10px]">Built-up Area</span>
-                      <span className="text-slate-900 font-bold">{record.areaSqFt}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    onClick={() => onOpenQuote(record.projectName)}
-                    className="py-2.5 px-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer shadow-sm text-center"
-                  >
-                    Inquire On Site
-                  </button>
-                  <a
-                    href={`tel:${COMPANY_CONFIG.phoneRaw}`}
-                    className="py-2.5 px-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors text-center flex items-center justify-center gap-1.5 shadow-sm"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>Call Us</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. BOTTOM ACTION */}
+      {/* 3. BOTTOM ACTION */}
       <section className="text-center p-8 bg-gradient-to-br from-white via-sky-50/40 to-sky-100/30 border border-sky-200 rounded-2xl shadow-xl space-y-4">
         <h3 className="text-xl font-black text-slate-900 font-sans uppercase tracking-tight">
           Need a Custom Engineered Structure Not Listed Above?
