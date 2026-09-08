@@ -141,7 +141,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
 
                 <div className="flex flex-col">
                   <span className="text-3xl font-black text-slate-900">
-                    <AnimatedCounter target={2000} suffix="+" />
+                    <AnimatedCounter target={10000} suffix="+" />
                   </span>
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">
                     Tons Executed
