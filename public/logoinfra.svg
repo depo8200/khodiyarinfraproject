@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <rect width="500" height="500" fill="#ffffff"/>
+  
+  <g transform="translate(0, 10)">
+    <!-- Left Wireframe Frame (Sky Blue) -->
+    <path d="M 142 355 L 142 230 L 245 130 L 245 355" 
+          fill="none" 
+          stroke="#4ea4dc" 
+          stroke-width="16" 
+          stroke-linejoin="miter" 
+          stroke-linecap="square"/>
+
+    <!-- Rear Taller Wireframe Frame (Sky Blue) -->
+    <path d="M 215 170 L 290 85 L 290 355" 
+          fill="none" 
+          stroke="#4ea4dc" 
+          stroke-width="16" 
+          stroke-linejoin="miter" 
+          stroke-linecap="square"/>
+
+    <!-- Center Main Tower Solid (Deep Blue) -->
+    <polygon points="190,355 190,135 264,75 264,355" 
+             fill="#1c5784"/>
+
+    <!-- Right Wing Solid (Deep Blue) -->
+    <polygon points="278,160 376,285 376,355 278,355" 
+             fill="#1c5784"/>
+
+    <!-- Gap line separator at bottom if any or clean base -->
+  </g>
+
+  <!-- Typography -->
+  <!-- KHODIYAR -->
+  <text x="250" y="422" 
+        text-anchor="middle" 
+        fill="#1c5784" 
+        font-family="Liberation Sans Narrow, Arial Narrow, sans-serif" 
+        font-size="64" 
+        font-weight="900" 
+        letter-spacing="3">KHODIYAR</text>
+
+  <!-- INFRA PROJECT -->
+  <text x="250" y="460" 
+        text-anchor="middle" 
+        fill="#4ea4dc" 
+        font-family="Liberation Sans, Arial, sans-serif" 
+        font-size="24" 
+        font-weight="700" 
+        letter-spacing="10">INFRA PROJECT</text>
+</svg>

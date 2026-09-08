@@ -13,8 +13,8 @@ export const COMPANY_CONFIG = {
   whatsapp: "+91 9099818956",
   whatsappNumber: "919099818956",
   
-  // Temporary email placeholder (easy to replace as requested)
-  email: "your-email@example.com",
+  // Primary contact & tender enquiry email
+  email: "khodiyarinfraproject@gmail.com",
 
   // Business Location
   businessCity: "Vadodara",

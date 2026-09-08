@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { COMPANY_CONFIG } from '../../data/company';
-import { BrandLogo } from '../common/BrandLogo';
+import { LogoInfra } from '../common/LogoInfra';
 import { Phone, MessageSquare, Search, Menu, X, ChevronDown, Wrench, ShieldAlert } from 'lucide-react';
 import { SERVICES_DATA } from '../../data/services';
 
@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="text-left focus:outline-none transition-transform hover:opacity-90"
               aria-label="Khodiyar Infraproject Home"
             >
-              <BrandLogo size="md" />
+              <LogoInfra size="md" />
             </button>
 
             {/* Desktop Navigation */}
@@ -198,7 +198,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="fixed inset-0 z-50 xl:hidden bg-white/98 backdrop-blur-xl animate-in fade-in duration-200">
           <div className="flex flex-col h-full overflow-y-auto p-5 space-y-6">
             <div className="flex items-center justify-between border-b border-sky-100 pb-4">
-              <BrandLogo size="md" />
+              <LogoInfra size="md" />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 bg-sky-50 border border-sky-200 text-slate-800 rounded-md"
