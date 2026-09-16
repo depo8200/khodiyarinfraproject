@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECT_CATEGORIES } from '../data/projects';
 import { COMPANY_CONFIG } from '../data/company';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { 
   Building2, 
   Phone, 
@@ -30,7 +31,10 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenQu
     : PROJECT_CATEGORIES.filter(p => p.category === selectedFilter);
 
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Projects', active: true }]} onNavigate={onNavigate} />
+
       {/* 1. HERO HEADER */}
       <section className="space-y-6 text-left border-b border-sky-100 pb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-mono uppercase font-bold tracking-widest rounded">
@@ -38,7 +42,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenQu
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans uppercase tracking-tight">
-          Types of Projects We Deliver
+          Industrial Steel &amp; PEB Projects in Vadodara, Gujarat
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl leading-relaxed">
@@ -104,8 +108,10 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenQu
                 <div className="relative h-52 overflow-hidden">
                   <img
                     src={proj.image}
-                    alt={proj.title}
+                    alt={`${proj.title} - Structural Steel Project Category | Khodiyar Infraproject`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   <span className="absolute top-3 left-3 px-2.5 py-1 bg-white/90 backdrop-blur-md text-[10px] font-mono text-sky-700 font-bold border border-sky-200 rounded uppercase tracking-widest shadow-sm">

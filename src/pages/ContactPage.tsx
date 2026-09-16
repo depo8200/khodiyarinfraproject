@@ -1,6 +1,7 @@
 import React from 'react';
 import { COMPANY_CONFIG } from '../data/company';
 import { QuoteForm } from '../components/sections/QuoteForm';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { 
   MapPin, 
   Phone, 
@@ -12,12 +13,16 @@ import {
 } from 'lucide-react';
 
 interface ContactPageProps {
+  onNavigate?: (route: string, slug?: string) => void;
   onOpenQuote?: (type?: string) => void;
 }
 
-export const ContactPage: React.FC<ContactPageProps> = () => {
+export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Contact', active: true }]} onNavigate={onNavigate} />
+
       {/* 1. HERO */}
       <section className="space-y-6 text-left border-b border-sky-100 pb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-mono uppercase font-bold tracking-widest rounded">
@@ -25,7 +30,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans uppercase tracking-tight">
-          Contact KHODIYAR INFRAPROJECT
+          Contact Khodiyar Infraproject | Vadodara &amp; Halol, Gujarat
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl leading-relaxed">

@@ -8,6 +8,7 @@ import { FAQS_DATA } from '../data/faqs';
 import { AnimatedCounter } from '../components/common/AnimatedCounter';
 import { StructuralEstimator } from '../components/sections/StructuralEstimator';
 import { QuoteForm } from '../components/sections/QuoteForm';
+import { TechnicalBuyerGuide } from '../components/sections/TechnicalBuyerGuide';
 import { 
   Phone, 
   MessageSquare, 
@@ -86,15 +87,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
 
               {/* High-Impact Display Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95] tracking-tighter text-slate-900 font-sans">
-                POWERING<br />
-                INDUSTRIAL<br />
-                <span className="text-sky-600">EXCELLENCE.</span>
+                PEB MANUFACTURER<br />
+                &amp; STEEL STRUCTURES<br />
+                <span className="text-sky-600">IN VADODARA.</span>
               </h1>
 
               {/* Sub-headline */}
-              <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed">
-                From precision 3D BIM design to turnkey on-site erection, <strong className="text-slate-900 font-semibold">{COMPANY_CONFIG.name}</strong> delivers high-performance Pre-Engineered Buildings (PEB) and heavy structural steel infrastructure across Gujarat and India.
-              </p>
+              <div className="space-y-2 max-w-xl">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                  Headquartered in the Vadodara and Halol industrial belt of Gujarat, <strong className="text-slate-900 font-bold">{COMPANY_CONFIG.name}</strong> is a specialized Pre-Engineered Building (PEB) manufacturer and structural steel fabrication company. We engineer turnkey industrial buildings, clear-span PEB warehouses, factory sheds, and heavy structural frameworks through a unified single-source lifecycle: in-house 3D design, precision factory fabrication, synchronized logistics, and certified site erection.
+                </p>
+                <p className="text-xs text-slate-500 font-mono">
+                  Serving Vadodara, Halol, Savli, Dahej, Bharuch, and industrial estates across Gujarat.
+                </p>
+              </div>
 
               {/* CONVERSION CTAs */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
@@ -545,8 +551,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
                 <div className="h-40 overflow-hidden relative rounded-lg border border-sky-100">
                   <img
                     src={ind.image}
-                    alt={ind.title}
+                    alt={`${ind.title} - Industrial Steel Solutions by Khodiyar Infraproject`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
@@ -617,8 +625,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
               <div className="relative h-44 overflow-hidden">
                 <img
                   src={proj.image}
-                  alt={proj.title}
+                  alt={`${proj.title} - Structural Steel Category by Khodiyar Infraproject`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
@@ -667,6 +677,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
             </div>
           ))}
         </div>
+      </section>
+
+      {/* 6.5 TECHNICAL BUYER GUIDE: PEB & STRUCTURAL STEEL KNOWLEDGE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <TechnicalBuyerGuide onNavigate={onNavigate} onOpenQuote={onOpenQuote} />
       </section>
 
       {/* 7. HOW WE WORK / 5-STEP PROJECT PROCESS */}

@@ -18,6 +18,7 @@ import { ProjectDetailPage } from './pages/ProjectDetailPage';
 import { WhyChooseUsPage } from './pages/WhyChooseUsPage';
 import { FaqPage } from './pages/FaqPage';
 import { ContactPage } from './pages/ContactPage';
+import { SEOHead } from './components/common/SEOHead';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<string>('home');
@@ -28,17 +29,20 @@ export default function App() {
     prefilledType: '',
   });
 
-  // Sync route with URL hash for browser navigation and bookmarking
+  // Sync route with URL hash / pathname for browser navigation, bookmarking, and search crawlers
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleLocationChange = () => {
       const hash = window.location.hash.replace(/^#\/?/, '');
-      if (!hash) {
+      const pathname = window.location.pathname.replace(/^\//, '').replace(/\/$/, '');
+      const target = hash || pathname;
+
+      if (!target) {
         setCurrentRoute('home');
         setCurrentSlug('');
         return;
       }
 
-      const parts = hash.split('/');
+      const parts = target.split('/');
       const base = parts[0];
       const slug = parts[1] || '';
 
@@ -53,12 +57,17 @@ export default function App() {
         setCurrentSlug(slug);
       } else {
         setCurrentRoute('home');
+        setCurrentSlug('');
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    handleLocationChange();
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
   }, []);
 
   const navigateTo = (route: string, slug?: string) => {
@@ -113,7 +122,7 @@ export default function App() {
       case 'faqs':
         return <FaqPage onNavigate={navigateTo} onOpenQuote={openQuoteModal} />;
       case 'contact':
-        return <ContactPage onOpenQuote={openQuoteModal} />;
+        return <ContactPage onNavigate={navigateTo} onOpenQuote={openQuoteModal} />;
       default:
         return <HomePage onNavigate={navigateTo} onOpenQuote={openQuoteModal} />;
     }
@@ -121,6 +130,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-sky-500 selection:text-white flex flex-col">
+      {/* Dynamic SEO Meta & Schema Head Manager */}
+      <SEOHead route={currentRoute} slug={currentSlug} />
+
       {/* Top Header */}
       <Header
         currentRoute={currentRoute}

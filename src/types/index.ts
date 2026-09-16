@@ -17,6 +17,10 @@ export interface ServiceItem {
     label: string;
     value: string;
   }[];
+  applications?: string[];
+  suitableProjects?: string[];
+  industriesServed?: string[];
+  whyChooseThis?: string;
 }
 
 export interface IndustryItem {
@@ -53,7 +57,7 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: 'PEB' | 'Fabrication' | 'Logistics' | 'General';
+  category: 'PEB' | 'Fabrication' | 'Logistics' | 'General' | 'Execution';
 }
 
 export interface QuoteFormData {

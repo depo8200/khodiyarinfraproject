@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/services';
 import { COMPANY_CONFIG } from '../data/company';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { 
   Wrench, 
   ArrowRight, 
@@ -29,7 +30,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenQu
     : SERVICES_DATA.filter(s => s.category === selectedCategory);
 
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Services', active: true }]} onNavigate={onNavigate} />
+
       {/* 1. HERO HEADER */}
       <section className="space-y-6 text-left border-b border-sky-100 pb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-mono uppercase font-bold tracking-widest rounded">
@@ -37,7 +41,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenQu
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans uppercase tracking-tight">
-          Complete Industrial Steel &amp; PEB Services
+          PEB &amp; Structural Steel Services in Vadodara, Gujarat
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl leading-relaxed">
@@ -76,8 +80,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenQu
             <div className="relative h-52 overflow-hidden">
               <img
                 src={srv.heroImage}
-                alt={srv.title}
+                alt={`${srv.title} - Structural Steel & PEB Services Vadodara | Khodiyar Infraproject`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
               <div className="absolute top-3 left-3 flex items-center gap-2">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { INDUSTRIES_DATA } from '../data/industries';
 import { COMPANY_CONFIG } from '../data/company';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { 
   Building2, 
   Phone, 
@@ -25,7 +26,10 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
   const otherIndustries = INDUSTRIES_DATA.filter(i => i.id !== coldStorage.id);
 
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Industries', active: true }]} onNavigate={onNavigate} />
+
       {/* 1. HERO */}
       <section className="space-y-6 text-left border-b border-sky-100 pb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-mono uppercase font-bold tracking-widest rounded">
@@ -33,7 +37,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans uppercase tracking-tight">
-          Engineered for Heavy Industrial Sectors
+          Industrial Steel Solutions for Factories &amp; Warehouses in Gujarat
         </h1>
 
         <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
@@ -134,8 +138,10 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
             <div className="overflow-hidden border border-sky-200 rounded-2xl shadow-xl relative h-72 sm:h-96">
               <img
                 src={coldStorage.image}
-                alt="Cold Storage Facility by Khodiyar Infraproject"
+                alt="Cold Storage Facility Steel Framing by Khodiyar Infraproject Vadodara"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -168,8 +174,10 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
                 <div className="relative h-52 overflow-hidden border border-sky-100 rounded-xl">
                   <img
                     src={ind.image}
-                    alt={ind.title}
+                    alt={`${ind.title} - Steel Construction Gujarat by Khodiyar Infraproject`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

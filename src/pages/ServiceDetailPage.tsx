@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/services';
 import { COMPANY_CONFIG } from '../data/company';
+import { FAQS_DATA } from '../data/faqs';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { 
   Phone, 
   MessageSquare, 
@@ -12,7 +14,13 @@ import {
   Wrench, 
   ChevronRight,
   FileCheck2,
-  HardHat
+  HardHat,
+  Factory,
+  HelpCircle,
+  ChevronDown,
+  Building2,
+  Target,
+  Layers
 } from 'lucide-react';
 
 interface ServiceDetailPageProps {
@@ -27,19 +35,31 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   onOpenQuote 
 }) => {
   const service = SERVICES_DATA.find(s => s.slug === slug) || SERVICES_DATA[0];
+  const [openFaqId, setOpenFaqId] = useState<string | null>(null);
 
   const otherServices = SERVICES_DATA.filter(s => s.slug !== service.slug);
 
+  // Pick top 3 relevant FAQs
+  const relevantFaqs = FAQS_DATA.filter(faq => {
+    if (service.category === 'Fabrication' && faq.category === 'Fabrication') return true;
+    if (service.category === 'Structures' && faq.category === 'PEB') return true;
+    if (service.category === 'Execution' && (faq.category === 'Logistics' || faq.category === 'General')) return true;
+    if (service.category === 'Engineering' && (faq.category === 'PEB' || faq.category === 'General')) return true;
+    return false;
+  }).slice(0, 3);
+
+  const displayFaqs = relevantFaqs.length > 0 ? relevantFaqs : FAQS_DATA.slice(0, 3);
+
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* 1. BREADCRUMBS & TOP NAV */}
-      <div className="flex items-center gap-2 text-xs font-mono text-slate-500 uppercase tracking-wider">
-        <button onClick={() => onNavigate('home')} className="hover:text-sky-600 cursor-pointer">Home</button>
-        <ChevronRight className="w-3 h-3 text-slate-400" />
-        <button onClick={() => onNavigate('services')} className="hover:text-sky-600 cursor-pointer">Services</button>
-        <ChevronRight className="w-3 h-3 text-slate-400" />
-        <span className="text-sky-600 font-bold">{service.title}</span>
-      </div>
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. BREADCRUMBS */}
+      <Breadcrumbs 
+        items={[
+          { label: 'Services', route: 'services' },
+          { label: service.title, active: true }
+        ]} 
+        onNavigate={onNavigate} 
+      />
 
       {/* 2. SERVICE HERO SECTION */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -49,7 +69,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-sans uppercase tracking-tight leading-tight">
-            {service.title}
+            {service.title} in Vadodara &amp; Gujarat
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
@@ -95,8 +115,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           <div className="relative overflow-hidden border border-sky-200 rounded-2xl shadow-xl h-80 sm:h-96">
             <img
               src={service.heroImage}
-              alt={service.title}
+              alt={`${service.title} - Structural Steel Engineering Vadodara | Khodiyar Infraproject`}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl border border-sky-200/50 text-xs font-mono text-white">
@@ -152,6 +174,205 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Why Industrial Clients Need This Service */}
+          {service.whyChooseThis && (
+            <div className="bg-sky-50/70 border border-sky-200 rounded-2xl p-6 sm:p-8 space-y-3 shadow-sm">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 font-sans uppercase tracking-tight flex items-center gap-2">
+                <Target className="w-5 h-5 text-sky-600" />
+                Why Industrial Clients Choose This Service
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                {service.whyChooseThis}
+              </p>
+            </div>
+          )}
+
+          {/* Applications & Suitable Project Types */}
+          {(service.applications || service.suitableProjects) && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {service.applications && (
+                <div className="bg-white border border-sky-200 rounded-2xl p-6 space-y-3 shadow-sm">
+                  <h4 className="text-xs sm:text-sm font-black text-slate-900 font-sans uppercase tracking-wider flex items-center gap-2">
+                    <Building2 className="w-4 h-4 text-sky-600" />
+                    Typical Applications
+                  </h4>
+                  <ul className="space-y-2 text-xs text-slate-600">
+                    {service.applications.map((app, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 flex-shrink-0"></span>
+                        <span>{app}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {service.suitableProjects && (
+                <div className="bg-white border border-sky-200 rounded-2xl p-6 space-y-3 shadow-sm">
+                  <h4 className="text-xs sm:text-sm font-black text-slate-900 font-sans uppercase tracking-wider flex items-center gap-2">
+                    <Factory className="w-4 h-4 text-sky-600" />
+                    Suitable Project Types
+                  </h4>
+                  <ul className="space-y-2 text-xs text-slate-600">
+                    {service.suitableProjects.map((proj, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 flex-shrink-0"></span>
+                        <span>{proj}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Industries Served */}
+          {service.industriesServed && service.industriesServed.length > 0 && (
+            <div className="bg-white border border-sky-200 rounded-2xl p-6 space-y-3 shadow-sm">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs sm:text-sm font-black text-slate-900 font-sans uppercase tracking-wider flex items-center gap-2">
+                  <Factory className="w-4 h-4 text-sky-600" />
+                  Industries Served Across Gujarat &amp; India
+                </h4>
+                <button
+                  onClick={() => onNavigate('industries')}
+                  className="text-[11px] font-bold text-sky-600 hover:text-sky-700 uppercase tracking-wider flex items-center gap-1 cursor-pointer"
+                >
+                  <span>All Industries</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-1">
+                {service.industriesServed.map((ind, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1.5 bg-sky-50 border border-sky-200 rounded-lg text-xs font-semibold text-slate-700"
+                  >
+                    {ind}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Relevant Technical FAQs */}
+          <div className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 font-sans uppercase tracking-tight flex items-center gap-2">
+                <HelpCircle className="w-5 h-5 text-sky-600" />
+                Frequently Asked Technical Questions
+              </h3>
+              <button
+                onClick={() => onNavigate('faqs')}
+                className="text-xs font-bold text-sky-600 hover:text-sky-700 uppercase tracking-wider cursor-pointer"
+              >
+                View All FAQs →
+              </button>
+            </div>
+            <div className="space-y-3 divide-y divide-sky-100">
+              {displayFaqs.map((faq) => {
+                const isOpen = openFaqId === faq.id;
+                return (
+                  <div key={faq.id} className="pt-3 first:pt-0">
+                    <button
+                      onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
+                      className="w-full text-left flex items-start justify-between gap-4 py-2 group cursor-pointer"
+                    >
+                      <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">
+                        {faq.question}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-sky-600 flex-shrink-0 transition-transform ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <p className="text-xs text-slate-600 leading-relaxed pt-1 pb-2">
+                        {faq.answer}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Contextual Single-Source Lifecycle & Related Structural Services */}
+          <div className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 font-sans uppercase tracking-tight flex items-center gap-2">
+                <Layers className="w-5 h-5 text-sky-600" />
+                Integrated Single-Source Lifecycle &amp; Related Services
+              </h3>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Every structural solution at Khodiyar Infraproject connects into our unified, in-house turnkey delivery model across Vadodara and Gujarat. Explore how this service integrates with our complementary engineering and execution capabilities:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {(
+                (service.slug === 'peb-buildings' && [
+                  { slug: 'factory-fabrication', title: 'Factory Fabrication', desc: 'Precision automated SAW welding, CNC profiling, and high-tensile secondary Z/C purlin manufacturing.' },
+                  { slug: 'in-house-design', title: 'In-House 3D Design', desc: 'BIM modeling and structural stress calculations customized to Gujarat wind and seismic codes.' },
+                  { slug: 'logistics', title: 'Synchronized Logistics', desc: 'Just-in-Time staged dispatch direct to crane swinging radii across Vadodara and Gujarat.' },
+                  { slug: 'turnkey-erection', title: 'Turnkey Erection', desc: 'Certified rigging, laser plumb verification, and calibrated torque bolting for fast handover.' }
+                ]) ||
+                (service.slug === 'factory-fabrication' && [
+                  { slug: 'peb-buildings', title: 'PEB Buildings', desc: 'Custom-tapered primary frames and structural envelopes for warehouses and factory sheds.' },
+                  { slug: 'heavy-structures', title: 'Heavy Structures', desc: 'Heavy plate girders, multi-tier process towers, and high-tonnage crane bays.' },
+                  { slug: 'designing-and-production', title: 'Designing & Production', desc: 'Direct CAM nesting synchronization minimizing scrap and preventing shop rework.' },
+                  { slug: 'turnkey-erection', title: 'Turnkey Erection', desc: 'Single-source site installation ensuring zero-defect bolt alignment and rapid handover.' }
+                ]) ||
+                (service.slug === 'heavy-structures' && [
+                  { slug: 'factory-fabrication', title: 'Factory Fabrication', desc: 'Thick plate welding (up to 65mm), full-penetration butt welds, and 100% ultrasonic testing.' },
+                  { slug: 'in-house-design', title: 'In-House 3D Design', desc: 'Dynamic load, fatigue, and crane surge force modeling under IS 800:2007.' },
+                  { slug: 'erection-and-installation', title: 'Erection & Installation', desc: 'Laser plumb verification, heavy tandem crane lifts, and crane rail grouting.' },
+                  { slug: 'peb-buildings', title: 'PEB Buildings', desc: 'Integrated industrial shed envelopes with heavy structural crane corridors.' }
+                ]) ||
+                (service.slug === 'turnkey-erection' && [
+                  { slug: 'peb-buildings', title: 'PEB Buildings', desc: 'High-speed portal frame erection and leak-proof Galvalume roof envelope installation.' },
+                  { slug: 'factory-fabrication', title: 'Factory Fabrication', desc: 'Factory-matched components pre-indexed with erection grid marks for rapid assembly.' },
+                  { slug: 'logistics', title: 'Synchronized Logistics', desc: 'Staged reverse-order deliveries eliminating yard clutter and crane downtime.' },
+                  { slug: 'in-house-design', title: 'In-House 3D Design', desc: 'Erection connection detailing and anchor bolt coordination plans.' }
+                ]) ||
+                otherServices.slice(0, 4).map(o => ({
+                  slug: o.slug,
+                  title: o.title,
+                  desc: o.shortDesc
+                }))
+              ).map((rel) => (
+                <button
+                  key={rel.slug}
+                  onClick={() => onNavigate('service-detail', rel.slug)}
+                  className="p-3.5 bg-sky-50/50 hover:bg-sky-50 border border-sky-100 hover:border-sky-300 rounded-xl text-left transition-all group cursor-pointer"
+                >
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                    <span>{rel.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-600 group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-600 leading-relaxed mt-1 line-clamp-2">
+                    {rel.desc}
+                  </p>
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-3 pt-2 text-xs">
+              <button
+                onClick={() => onNavigate('industries')}
+                className="font-bold text-sky-600 hover:text-sky-700 underline underline-offset-4 cursor-pointer"
+              >
+                View Industries Served →
+              </button>
+              <span className="text-slate-300">•</span>
+              <button
+                onClick={() => onNavigate('contact')}
+                className="font-bold text-sky-600 hover:text-sky-700 underline underline-offset-4 cursor-pointer"
+              >
+                Speak with a Structural Engineer →
+              </button>
             </div>
           </div>
         </div>

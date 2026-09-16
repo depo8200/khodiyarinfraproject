@@ -45,7 +45,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Deliverables', value: 'GA Drawings, Anchor Bolt Layout, 3D Models, Fabrication BOM' },
       { label: 'Software Suite', value: '3D Structural Analysis & Advanced Detailing' },
       { label: 'Turnaround', value: 'Fast-track engineering within project scheduling benchmarks' }
-    ]
+    ],
+    applications: [
+      'PEB Portal Rigid Frame Optimization',
+      'Heavy EOT Crane Runway & Gantry Analysis',
+      '3D BIM Connection Detailing & Clash Auditing',
+      'Civil Foundation Reaction & Anchor Bolt Layouts'
+    ],
+    suitableProjects: [
+      'Pre-Engineered Warehouses & Logistics Hubs',
+      'Heavy Manufacturing Plants & Machine Shops',
+      'Cold Storage Steel Enclosures',
+      'Multi-Tier Process Buildings'
+    ],
+    industriesServed: [
+      'Logistics & E-Commerce Warehousing',
+      'Heavy & Precision Engineering',
+      'Automotive & Engineering Ancillary',
+      'Chemical & Process Facilities'
+    ],
+    whyChooseThis: 'Eliminates consultant-to-fabricator friction by integrating Design-for-Manufacture (DFM) rules directly into Staad.Pro and Tekla 3D BIM models, saving 8% to 15% on structural steel mass while guaranteeing IS 800 code safety.'
   },
   {
     id: 'factory-fabrication',
@@ -53,7 +72,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Factory Fabrication',
     category: 'Fabrication',
     shortDesc: 'Automated submerged arc welding, CNC cutting, shot blasting, and precision assembly of high-yield structural steel members.',
-    fullDesc: 'Our structural steel fabrication operations translate digital engineering files into rugged, millimeter-accurate steel assemblies. Utilizing high-yield structural steel plates (E250, E350, ASTM A572), our fabrication workflow utilizes automatic continuous Submerged Arc Welding (SAW) for built-up H-beams, plasma profiling, multi-spindle drilling, and standardized edge preparation. Every beam, column, rafter, and purlin undergoes rigorous quality inspections—including ultrasonic and dye penetrant testing of critical weld seams—followed by high-grade industrial primer coating to resist weathering during transit.',
+    fullDesc: 'Our structural steel fabrication operations translate digital engineering files into rugged, millimeter-accurate steel assemblies. As a dedicated PEB fabrication and steel structure manufacturer serving Vadodara and industrial Gujarat, our production facility processes high-yield structural steel plates (conforming to IS 2062 Grade E250 and E350 BR/B0 and ASTM A572 Grade 50). The fabrication lifecycle integrates automated CNC multi-torch oxy-fuel and plasma profiling, multi-spindle drilling, and standardized edge beveling. Primary built-up tapered H-beams and columns are welded using automatic continuous Submerged Arc Welding (SAW) lines that guarantee deep, uniform weld penetration complying with AWS D1.1 structural welding standards.\n\nEvery beam, column, rafter, and purlin undergoes rigorous quality inspections—including ultrasonic flaw detection (UT) on critical butt splices, dye-penetrant testing (DPT) on fillet welds, and shop trial assemblies before coating. Surfaces are cleaned via shot blasting and protected with high-build anti-corrosive epoxy/polyurethane primers to withstand transit and industrial atmospheric exposure. This precision manufacturing is directly connected to our in-house 3D design models, synchronized logistics dispatch schedules, and site erection sequences, guaranteeing that every member installs on site without field burning, cutting, or reaming.',
     heroImage: '/regenerated_image_1788754638449.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
@@ -91,7 +110,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Welding Standards', value: 'AWS D1.1, IS 9595, Submerged Arc Welding' },
       { label: 'Testing Protocol', value: 'DPT, Ultrasonic Flaw Detection (UT), Magnetic Particle' },
       { label: 'Surface Finish', value: 'Red oxide / Zinc chromate / Epoxy primer coating' }
-    ]
+    ],
+    applications: [
+      'Primary Built-Up Tapered Columns & Rafters',
+      'Continuous Galvanized Z & C Roof Purlins',
+      'Heavy Crane Runway Girders with Welded Rails',
+      'Fabricated Structural Box Sections & Columns'
+    ],
+    suitableProjects: [
+      'Factory Sheds & Industrial Warehouses',
+      'Heavy Equipment Maintenance Workshops',
+      'High-Bay Storage & Logistics Parks',
+      'Process Towers & Pipe Trestles'
+    ],
+    industriesServed: [
+      'Steel & Metallurgy',
+      'FMCG & Food Processing',
+      'General Industrial Manufacturing',
+      'Pharmaceuticals & Specialty Chemicals'
+    ],
+    whyChooseThis: 'Automated Submerged Arc Welding (SAW) with in-house non-destructive testing (NDT) guarantees deep weld penetration, zero porosity, and precise bolt-hole alignment that fits without on-site cutting or re-drilling.'
   },
   {
     id: 'turnkey-erection',
@@ -99,7 +137,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Turnkey Erection',
     category: 'Execution',
     shortDesc: 'Rapid, safe, crane-assisted structural erection on-site with certified riggers and disciplined HSE protocols across Gujarat.',
-    fullDesc: 'Erection is where engineering integrity meets physical reality. Khodiyar Infraproject provides comprehensive turnkey erection managed by seasoned site engineers and heavy-lift rigging specialists. Because our own factory fabricates the members, our erection teams work with components designed with matched bolt-holes and pre-indexed shipping codes. We orchestrate heavy mobile cranes, aerial manlifts, perimeter safety nets, and torque-controlled tensioning for High-Strength Friction Grip (HSFG) bolts. From anchor bolt alignment verification to the final ridge capping, we deliver turnkey structures ready for immediate fit-out.',
+    fullDesc: 'Erection is where engineering integrity meets physical execution on site. Khodiyar Infraproject provides comprehensive turnkey PEB erection and industrial steel structure installation managed by seasoned site engineers, safety officers, and certified heavy-lift rigging specialists. Because our own factory fabricates the structural members, our erection crews work with components pre-indexed with structural grid markings, matched bolt-holes, and zero-defect flange geometry.\n\nOur on-site erection lifecycle starts with total station foundation audits to verify anchor bolt coordinates and base elevations. We coordinate heavy hydraulic mobile cranes, boom lifts, aerial manlifts, full perimeter safety netting, and calibrated torque-controlled tensioning for High-Strength Friction Grip (HSFG) structural bolts (Grade 8.8 and 10.9). From assembling the initial rigid braced portal frame bay to installing cold-formed secondary framing, crane runway beams, leak-proof Galvalume roof envelopes, and insulated PUF sandwich walls, we deliver ready-to-occupy industrial buildings on accelerated schedules across Vadodara, Halol, Savli, Dahej, Bharuch, and Gujarat.',
     heroImage: '/regenerated_image_1788754639780.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
@@ -137,7 +175,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Safety Protocols', value: 'Full PPE, Lifelines, Safety Nets, Tool Tethering' },
       { label: 'Lifting Equipment', value: 'Heavy Hydraulic Telescopic Cranes & Boom Lifts' },
       { label: 'Survey Instruments', value: 'Total Station & Precision Optical Leveling' }
-    ]
+    ],
+    applications: [
+      'Heavy Structural Skeleton On-Site Assembly',
+      'High-Bay Crane-Assisted Portal Rafter Lifts',
+      'Insulated PUF Panel Wall & Roof Envelope Installation',
+      'Anchor Bolt Surveying & Base Grouting'
+    ],
+    suitableProjects: [
+      'Fast-Track Factory Sheds in Gujarat',
+      'High-Bay Logistics Distribution Facilities',
+      'Controlled Atmosphere Cold Storage Facilities',
+      'Heavy Manufacturing Facilities with EOT Cranes'
+    ],
+    industriesServed: [
+      'Logistics & Warehousing Hubs',
+      'Cold Chain Logistics Infrastructure',
+      'Heavy Engineering & Forging',
+      'Turnkey Industrial Complexes'
+    ],
+    whyChooseThis: 'Single-source responsibility means our site erectors work with components fabricated by our own plant. Pre-indexed parts, matched bolt holes, and certified riggers eliminate contractor blame-shifting and guarantee rapid structural handover.'
   },
   {
     id: 'peb-buildings',
@@ -145,7 +202,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'PEB Buildings (Pre-Engineered)',
     category: 'Structures',
     shortDesc: 'Custom-engineered industrial PEB steel structures offering wide clear spans, maximum cubic volume, and 40% faster execution.',
-    fullDesc: 'Pre-Engineered Buildings (PEBs) engineered by Khodiyar Infraproject represent the gold standard for industrial warehouses, logistics parks, factories, and clear-span facilities. By tailoring steel taper thicknesses strictly in proportion to internal bending moment diagrams, PEBs achieve optimal structural economy compared to conventional heavy rolled steel. We engineer complete PEB envelopes including primary rigid frames, cold-formed galvanized Z/C purlins, standing seam or screw-down roof cladding, polycarbonate daylight skylights, turbo ventilators, crane brackets, and insulated wall panels.',
+    fullDesc: 'Pre-Engineered Buildings (PEBs) engineered and manufactured by Khodiyar Infraproject represent the highest standard of structural efficiency for industrial warehouses, logistics parks, factory sheds, and commercial clear-span infrastructure in Vadodara, Gujarat, and across Western India. By tailoring primary steel taper dimensions strictly to internal stress envelopes under IS 800:2007, PEBs achieve up to 30% reduction in dead steel mass compared to conventional hot-rolled structures, dramatically lowering foundation loads while providing unobstructed clear spans up to 60+ meters.\n\nOur end-to-end PEB building scope covers everything from in-house 3D design and DFM analysis to automated factory fabrication (continuous SAW welding, CNC cold-formed Z/C purlins), synchronized JIT transport logistics, and turnkey on-site erection. We engineer complete building envelopes including standing seam or screw-down Galvalume roof systems, insulated PUF/PIR sandwich wall panels, daylight polycarbonate skylights, continuous gravity ridge ventilators, overhead crane brackets, mezzanine floor decking, and cantilevered truck dock canopies tailored to your exact manufacturing or storage demands.',
     heroImage: '/regenerated_image_1788754641137.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80',
@@ -183,7 +240,27 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Roof Slope', value: '1:10 standard (customizable from 1:5 to 1:20)' },
       { label: 'Secondary Framing', value: 'High-strength Galvanized Cold-Formed Z & C Purlins (345 MPa)' },
       { label: 'Cladding Material', value: '0.5mm Galvalume AZ150 / Color Coated Steel' }
-    ]
+    ],
+    applications: [
+      'High-Bay Clear-Span Logistics Warehouses',
+      'Industrial Manufacturing Plants & Factory Sheds',
+      'Temperature-Controlled Cold Storage Facilities',
+      'Heavy EOT Crane-Equipped Engineering Sheds',
+      'Industrial Workstations, Workshops & Garages'
+    ],
+    suitableProjects: [
+      'New Greenfield Factory Projects in Gujarat',
+      'Industrial Shed Expansions & Extensions',
+      'Logistics & 3PL Distribution Parks',
+      'Process Plant Production Buildings'
+    ],
+    industriesServed: [
+      'Warehousing & Supply Chain',
+      'Automotive & Engineering Components',
+      'Cold Chain & Agro-Processing',
+      'Chemical & Pharmaceutical Plants'
+    ],
+    whyChooseThis: 'Custom-tapered built-up sections match exact internal stress curves, eliminating up to 30% of dead weight compared to conventional rolled steel. This reduces foundation footing sizes, enables clear spans over 60m, and speeds up plant commissioning by up to 40%.'
   },
   {
     id: 'heavy-structures',
@@ -191,7 +268,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Heavy Structures',
     category: 'Structures',
     shortDesc: 'Engineering and fabrication for heavy industrial plants, furnace buildings, multi-tier process towers, and high-tonnage crane bays.',
-    fullDesc: 'When industrial projects involve severe dynamic loads, high-capacity overhead cranes (20T to 75T+), multi-story process equipment, or intense operational vibrations, Khodiyar Infraproject delivers heavy structural steel engineering. We manufacture built-up box sections, heavy plate girders, pipe racks, heavy truss bents, and vibrating screen support structures. Our fabrication protocols enforce strict joint penetration, pre-heating of thick plates, post-weld stress relief where required, and full traceability of all structural plate batches.',
+    fullDesc: 'When industrial projects involve severe dynamic loads, high-capacity overhead cranes (20T to 75T+), multi-story process equipment, or intense operational vibrations, Khodiyar Infraproject delivers heavy structural steel engineering and specialized heavy fabrication. Serving major industrial processing zones in Vadodara, Dahej PCPIR, Bharuch, and Gujarat, we fabricate built-up box columns with internal diaphragms, heavy plate girders, industrial pipe racks, multi-tier process towers, heavy truss bents, and vibrating equipment support structures.\n\nOur heavy fabrication protocols enforce strict joint beveling, controlled pre-heating of thick structural plates (up to 65mm in IS 2062 E350 BR/B0), multi-pass Submerged Arc Welding (SAW), and post-weld heat treatment (PWHT) where required. Every tension butt joint undergoes 100% ultrasonic non-destructive testing (UT) and magnetic particle inspection. To ensure zero fitment delays during site installation, complex heavy joints and crane girder splices undergo complete shop trial assembly and laser alignment check prior to surface blasting and multi-coat industrial epoxy application.',
     heroImage: '/regenerated_image_1788754642347.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
@@ -229,7 +306,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Crane Compatibility', value: 'Designed for 10 Ton to 75+ Ton EOT Cranes' },
       { label: 'Weld Quality', value: 'Full Penetration Butt Welds with 100% NDT UT' },
       { label: 'Deflection Ratios', value: 'Strict L/600 to L/1000 deflection control for crane girders' }
-    ]
+    ],
+    applications: [
+      'Heavy Crane Runway Girders & Surge Trusses',
+      'Multi-Tier Chemical & Petrochemical Process Towers',
+      'Industrial Pipe Racks & Utility Bridge Trestles',
+      'Foundry & Steel Mill Furnace Enclosures'
+    ],
+    suitableProjects: [
+      'Heavy Engineering & Metallurgy Plants',
+      'Chemical & Fertilizer Complex Infrastructure',
+      'Heavy Machine Foundation Support Structures',
+      'Refinery Auxiliary Facilities'
+    ],
+    industriesServed: [
+      'Steel, Forging & Heavy Foundry',
+      'Chemical & Petrochemical Refining',
+      'Power Generation & Utilities',
+      'Mining & Bulk Material Handling'
+    ],
+    whyChooseThis: 'Specifically engineered to withstand intense cyclic dynamic vibration, fatigue limits, and heavy horizontal crane surge forces using thick high-yield steel plates (up to 65mm), full-penetration SAW butt welds, and 100% ultrasonic testing.'
   },
   {
     id: 'modular-structures',
@@ -275,7 +371,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Wall Panels', value: '50mm - 100mm PUF / EPS / Rockwool insulated panels' },
       { label: 'Flooring', value: 'Heavy cement fiber board / Checker plate / Vinyl finishes' },
       { label: 'Deployment Time', value: '1 to 3 days for standard configurations' }
-    ]
+    ],
+    applications: [
+      'Factory Floor Supervisory & Managerial Cabins',
+      'Electrical Motor Control Center (MCC) Rooms',
+      'Cleanroom Testing & QA Inspection Enclosures',
+      'Industrial Security Checkpoints & Entry Cabins'
+    ],
+    suitableProjects: [
+      'Operational Plant Space Expansions',
+      'Fast-Track Office Additions in Industrial Sheds',
+      'Hazardous Zone Control Enclosures',
+      'Temporary & Semi-Permanent Site Facilities'
+    ],
+    industriesServed: [
+      'Industrial Manufacturing Plants',
+      'Pharmaceutical & Cleanroom Units',
+      'Logistics Hub Security & Dispatch Cabins',
+      'EPC Construction Sites'
+    ],
+    whyChooseThis: 'Prefabricated completely off-site with integrated PUF insulation and electrical conduit chases. Installs inside or alongside existing factory floors in 1 to 3 days without shutting down active assembly lines or generating dust.'
   },
   {
     id: 'designing-and-production',
@@ -321,7 +436,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Part Indexing', value: 'Hard-stamped and high-visibility painted piece marks' },
       { label: 'Tolerances', value: 'Strict adherence to IS 7215 structural fabrication tolerances' },
       { label: 'Integration', value: 'Direct digital interface between CAD/CAM & fabrication machinery' }
-    ]
+    ],
+    applications: [
+      'Automated CNC Plasma & Oxy-Fuel Nesting',
+      'Millimeter-Accurate Part Detailing & Marking',
+      'Fabrication Manifests Linked to Erection Grid',
+      'Clash-Free Structural Connection Detailing'
+    ],
+    suitableProjects: [
+      'Complex Industrial Sheds & Factories',
+      'Multi-Span Logistics Centers',
+      'High-Tonnage Structural Steel Projects',
+      'Fast-Track Commercial Steel Buildings'
+    ],
+    industriesServed: [
+      'General Industrial Manufacturing',
+      'EPC & Industrial Infrastructure',
+      'Logistics & Warehousing Developers',
+      'Process Plants & Refineries'
+    ],
+    whyChooseThis: 'Seamless digital continuity from 3D BIM models directly to automated cutting torches achieves >96% steel plate yield, prevents costly shop discrepancies, and guarantees that every bolt hole aligns on the job site.'
   },
   {
     id: 'logistics',
@@ -367,7 +501,26 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Fleet Capability', value: 'Low-bed trailers, 40-foot flatbeds, and heavy multi-axle trucks' },
       { label: 'Tracking', value: 'Real-time transit updates to site supervisory engineers' },
       { label: 'Dispatch Manifest', value: 'Detailed itemized packing list cross-referenced to erection GA drawings' }
-    ]
+    ],
+    applications: [
+      'Long-Rafter Oversized Heavy Haulage',
+      'Just-in-Time (JIT) Sequenced Bay Deliveries',
+      'Direct-from-Trailer Crane Rigging Support',
+      'Transit Coating Protection & Timber Dunnage'
+    ],
+    suitableProjects: [
+      'Fast-Track Industrial Shed Projects',
+      'Congested Industrial Estate Sites (Vadodara, Savli, Dahej)',
+      'Large Logistics Warehouses with Phased Bays',
+      'Heavy Process Tower Deliveries'
+    ],
+    industriesServed: [
+      'All Gujarat Industrial Estates (GIDC)',
+      'Heavy Engineering & Plant Infrastructure',
+      'Warehousing & Supply Chain Logistics',
+      'Cold Storage & Agro-Processing'
+    ],
+    whyChooseThis: 'Loads are planned in reverse erection order so crane crews can rig pieces straight off trailer flatbeds. This eliminates on-site double-handling, avoids transit coating gouges, and eliminates expensive crane downtime.'
   },
   {
     id: 'erection-and-installation',
@@ -413,6 +566,25 @@ export const SERVICES_DATA: ServiceItem[] = [
       { label: 'Bolt Inspection', value: '100% torque inspection using calibrated dial torque wrenches' },
       { label: 'Roof Fasteners', value: 'Class 3 / Class 4 corrosion-resistant self-drilling fasteners with EPDM washers' },
       { label: 'Handover Quality', value: 'Ready for equipment installation and flooring fit-out' }
-    ]
+    ],
+    applications: [
+      'Total Station Laser Structural Plumb Alignment',
+      'Calibrated HSFG Torque Bolting Auditing',
+      'Weather-Tight Galvalume Roof & Wall Cladding',
+      'Crane Runway Rail Grouting & Commissioning'
+    ],
+    suitableProjects: [
+      'Industrial Factory Sheds across Vadodara & Gujarat',
+      'Cold Storage Steel Superstructures',
+      'High-Bay E-Commerce Hubs',
+      'Heavy Engineering & Forge Plant Buildings'
+    ],
+    industriesServed: [
+      'Automotive & Engineering Plants',
+      'Logistics & Warehouse Operations',
+      'Food & Cold Chain Facilities',
+      'Chemical & Manufacturing Industry'
+    ],
+    whyChooseThis: 'Experienced field engineers and certified rigging specialists assemble factory-matched components under strict IS 12843 tolerances with 100% torque inspection and waterproof seal testing for rapid structural sign-off.'
   }
 ];

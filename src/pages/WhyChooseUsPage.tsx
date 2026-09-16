@@ -1,6 +1,7 @@
 import React from 'react';
 import { DIFFERENTIATORS_DATA } from '../data/differentiators';
 import { COMPANY_CONFIG } from '../data/company';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { AnimatedCounter } from '../components/common/AnimatedCounter';
 import { 
   Phone, 
@@ -50,7 +51,10 @@ export const WhyChooseUsPage: React.FC<WhyChooseUsPageProps> = ({ onNavigate, on
   ];
 
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Why Choose Us', active: true }]} onNavigate={onNavigate} />
+
       {/* 1. HERO HEADER */}
       <section className="space-y-6 text-left border-b border-sky-100 pb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-mono uppercase font-bold tracking-widest rounded">
@@ -58,7 +62,7 @@ export const WhyChooseUsPage: React.FC<WhyChooseUsPageProps> = ({ onNavigate, on
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans uppercase tracking-tight">
-          Why Choose KHODIYAR INFRAPROJECT?
+          Why Choose Khodiyar Infraproject | PEB Contractor Vadodara
         </h1>
 
         <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">

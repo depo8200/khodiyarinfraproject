@@ -1,6 +1,7 @@
 import React from 'react';
 import { PROJECT_CATEGORIES } from '../data/projects';
 import { COMPANY_CONFIG } from '../data/company';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { 
   Building2, 
   Phone, 
@@ -28,15 +29,15 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
   const otherProjects = PROJECT_CATEGORIES.filter(p => p.slug !== project.slug);
 
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs font-mono text-slate-500 uppercase tracking-wider">
-        <button onClick={() => onNavigate('home')} className="hover:text-sky-600 cursor-pointer">Home</button>
-        <ChevronRight className="w-3 h-3 text-slate-400" />
-        <button onClick={() => onNavigate('projects')} className="hover:text-sky-600 cursor-pointer">Projects</button>
-        <ChevronRight className="w-3 h-3 text-slate-400" />
-        <span className="text-sky-600 font-bold">{project.title}</span>
-      </div>
+      <Breadcrumbs 
+        items={[
+          { label: 'Projects', route: 'projects' },
+          { label: project.title, active: true }
+        ]} 
+        onNavigate={onNavigate} 
+      />
 
       {/* Main Hero */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -46,7 +47,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-sans uppercase tracking-tight leading-tight">
-            {project.title}
+            {project.title} in Vadodara &amp; Gujarat
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
@@ -80,8 +81,10 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
           <div className="relative overflow-hidden border border-sky-200 rounded-2xl shadow-xl h-80 sm:h-96">
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - Structural Steel Engineering Vadodara | Khodiyar Infraproject`}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl border border-sky-200/50 text-xs font-mono text-white">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { COMPANY_CONFIG } from '../data/company';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { AnimatedCounter } from '../components/common/AnimatedCounter';
 import { 
   Phone, 
@@ -25,7 +26,10 @@ interface AboutPageProps {
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote }) => {
   return (
-    <div className="pt-28 md:pt-36 pb-20 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'About Us', active: true }]} onNavigate={onNavigate} />
+
       {/* 1. HERO / INTRO */}
       <section className="space-y-6 text-left border-b border-sky-100 pb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-mono uppercase font-bold tracking-widest rounded">
@@ -33,7 +37,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
         </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans uppercase tracking-tight leading-tight">
-          Single-Source Structural Steel &amp; PEB Solutions Engineered for Industrial Precision
+          About Khodiyar Infraproject | PEB &amp; Structural Steel Fabricator Gujarat
         </h1>
 
         <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
@@ -102,8 +106,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
           <div className="overflow-hidden border border-sky-200 rounded-2xl shadow-xl relative">
             <img
               src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"
-              alt="Structural Steel Fabrication at Khodiyar Infraproject"
+              alt="Structural Steel Fabrication at Khodiyar Infraproject Vadodara, Gujarat"
               className="w-full h-96 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-4 bg-slate-900/90 backdrop-blur-md rounded-xl border border-sky-200/50 text-xs text-white font-mono">
