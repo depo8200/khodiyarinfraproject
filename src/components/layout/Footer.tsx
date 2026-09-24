@@ -27,64 +27,93 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-sky-500"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
-          {/* Col 1: Brand & Overview (4 Cols) */}
-          <div className="lg:col-span-4 space-y-4">
+        {/* Main Footer Grid: 3 + 2 + 2 + 2 + 3 = 12 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
+          {/* Col 1: Brand & Overview (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
             <button onClick={() => onNavigate('home')} className="text-left focus:outline-none">
               <BrandLogo size="lg" />
             </button>
             <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-              Established in {COMPANY_CONFIG.establishedYear} in Vadodara, Gujarat. Khodiyar Infraproject delivers complete single-source industrial steel and pre-engineered building (PEB) solutions covering the complete structural lifecycle: Design, Factory Fabrication, Logistics, and Turnkey Erection.
+              Established in {COMPANY_CONFIG.establishedYear} in Vadodara, Gujarat. Khodiyar Infraproject delivers complete single-source industrial steel and pre-engineered building (PEB) solutions covering design, fabrication, logistics, and turnkey erection.
             </p>
 
             {/* Direct High-Priority Call Card */}
-            <div className="p-5 bg-white border border-sky-200 space-y-3 rounded-lg shadow-sm">
+            <div className="p-4 bg-white border border-sky-200 space-y-2.5 rounded-lg shadow-sm">
               <div className="flex items-center gap-2 text-xs font-mono uppercase text-sky-700 font-bold">
                 <Phone className="w-3.5 h-3.5 fill-current" />
-                Primary Industrial Contact (Call Now)
+                Call Now
               </div>
               <a
                 href={`tel:${COMPANY_CONFIG.phoneRaw}`}
-                className="block text-xl font-black text-slate-900 hover:text-sky-600 transition-colors font-sans"
+                className="block text-lg font-black text-slate-900 hover:text-sky-600 transition-colors font-sans"
               >
                 {COMPANY_CONFIG.phoneDisplay}
               </a>
-              <div className="flex items-center gap-3 pt-1">
+              <div className="flex items-center gap-2 pt-1">
                 <a
                   href={`https://wa.me/${COMPANY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello Khodiyar Infraproject, I need a quotation for a steel structure project.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider transition-colors rounded"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 border border-emerald-500/40 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-[11px] font-bold uppercase tracking-wider transition-colors rounded"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                  <MessageSquare className="w-3 h-3 text-emerald-600" />
                   WhatsApp
                 </a>
                 <button
                   onClick={() => onOpenQuote()}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold uppercase tracking-wider transition-colors rounded shadow-sm"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 bg-sky-600 hover:bg-sky-700 text-white text-[11px] font-bold uppercase tracking-wider transition-colors rounded shadow-sm cursor-pointer"
                 >
-                  Get a Quote
+                  Get Quote
                 </button>
               </div>
             </div>
 
             {/* Real Stats Badge */}
-            <div className="flex items-center gap-6 pt-2">
+            <div className="flex items-center gap-4 pt-1">
               <div className="flex flex-col">
-                <span className="text-2xl font-black text-sky-600">{COMPANY_CONFIG.experienceYears} Years+</span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Industry Exp</span>
+                <span className="text-xl font-black text-sky-600">{COMPANY_CONFIG.experienceYears} Years+</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Industry Exp</span>
               </div>
-              <div className="w-[1px] h-8 bg-sky-200"></div>
+              <div className="w-[1px] h-7 bg-sky-200"></div>
               <div className="flex flex-col">
-                <span className="text-2xl font-black text-sky-600">{COMPANY_CONFIG.tonnageCompleted} Tons</span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Steel Executed</span>
+                <span className="text-xl font-black text-sky-600">{COMPANY_CONFIG.tonnageCompleted} Tons</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Steel Executed</span>
               </div>
             </div>
           </div>
 
-          {/* Col 2: Services (3 Cols) */}
-          <div className="lg:col-span-3 space-y-4">
+          {/* Col 2: Quick Links (From Shree Umiya Structure style) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-sky-700 font-bold flex items-center gap-1.5">
+              <span>Quick Links</span>
+            </h4>
+            <ul className="space-y-2 text-xs">
+              {[
+                { label: 'About PEB', route: 'service-detail', slug: 'peb-buildings' },
+                { label: 'Standard Frame Types', route: 'resources/knowledge-hub/peb-guides', slug: 'peb-structural-framing-systems' },
+                { label: 'Roofing & Wall Panels', route: 'resources/knowledge-hub/peb-guides', slug: 'standing-seam-vs-screw-down-roofing' },
+                { label: 'PEB vs CSB', route: 'resources/knowledge-hub/comparisons', slug: 'peb-vs-traditional-industrial-shed' },
+                { label: 'Structural Design', route: 'service-detail', slug: 'in-house-design' },
+                { label: 'Turnkey Projects', route: 'service-detail', slug: 'turnkey-erection' },
+                { label: 'Completed Projects', route: 'projects' },
+                { label: 'Ongoing Projects', route: 'projects' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <button
+                    onClick={() => onNavigate(item.route, item.slug)}
+                    className="text-slate-600 hover:text-sky-600 transition-colors flex items-center gap-2 group text-left w-full"
+                  >
+                    <span className="w-1.5 h-1.5 bg-amber-400 group-hover:bg-sky-600 transition-colors rounded-full flex-shrink-0"></span>
+                    <span className="group-hover:translate-x-0.5 transition-transform">{item.label}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3: Services */}
+          <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-sky-700 font-bold">
               Core Services (9)
             </h4>
@@ -103,13 +132,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
             </ul>
           </div>
 
-          {/* Col 3: Industries & Navigation (2 Cols) */}
+          {/* Col 4: Industries & Resource Ecosystem (2 Cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-sky-700 font-bold">
               Industries
             </h4>
             <ul className="space-y-2 text-xs">
-              {INDUSTRIES_DATA.map((ind) => (
+              {INDUSTRIES_DATA.slice(0, 5).map((ind) => (
                 <li key={ind.id}>
                   <button
                     onClick={() => onNavigate('industries')}
@@ -124,47 +153,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
 
             <div className="pt-2">
               <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-2">
-                Pages
+                Pages &amp; Tools
               </h4>
               <ul className="space-y-1.5 text-xs">
                 {[
                   { label: 'About Us', route: 'about' },
                   { label: 'Why Choose Us', route: 'why-choose-us' },
-                  { label: 'Projects', route: 'projects' },
                   { label: 'FAQs', route: 'faqs' },
-                  { label: 'Contact Us', route: 'contact' }
+                  { label: 'Contact Us', route: 'contact' },
+                  { label: 'PEB Estimator Tool', route: 'resources/tools/peb-requirement-estimator' },
+                  { label: 'Structural Estimator', route: 'resources/tools/structural-estimator' },
                 ].map((item) => (
                   <li key={item.label}>
                     <button
                       onClick={() => onNavigate(item.route)}
                       className="text-slate-500 hover:text-sky-600 transition-colors"
-                    >
-                      {item.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-2">
-              <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-2">
-                Resource Ecosystem
-              </h4>
-              <ul className="space-y-1.5 text-xs">
-                {[
-                  { label: 'Resources Gateway', route: 'resources' },
-                  { label: 'PEB Knowledge Hub', route: 'resources/knowledge-hub' },
-                  { label: 'Free Toolkits & Guides', route: 'resources/free-resources' },
-                  { label: 'Structural Estimator & Tools', route: 'resources/tools' },
-                  { label: 'Company / Industry Insights', route: 'resources/company-industry-insights' },
-                  { label: '↳ Company Updates', route: 'resources/company-industry-insights/company-updates' },
-                  { label: '↳ Industry Insights (20 Articles)', route: 'resources/company-industry-insights/industry-insights' },
-                  { label: '↳ Verified Case Studies', route: 'resources/company-industry-insights/case-studies' }
-                ].map((item) => (
-                  <li key={item.route}>
-                    <button
-                      onClick={() => onNavigate(item.route)}
-                      className="text-slate-500 hover:text-sky-600 transition-colors text-left"
                     >
                       {item.label}
                     </button>
