@@ -12,7 +12,9 @@ import {
   Cpu, 
   Truck, 
   Layers, 
-  Filter 
+  Filter,
+  BookOpen,
+  FileText
 } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -145,6 +147,109 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenQu
             </div>
           </div>
         ))}
+      </section>
+
+      {/* 2.5 TECHNICAL GUIDES FOR INDUSTRIAL STEEL DECISION MAKERS (Level 7 Additive Integration) */}
+      <section className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-10 space-y-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-sky-100 pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-sky-50 text-sky-700 text-xs font-mono uppercase font-bold tracking-wider rounded border border-sky-200">
+              <BookOpen className="w-3.5 h-3.5" />
+              Engineering Knowledge Base
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-sans uppercase tracking-tight mt-1.5">
+              Technical Guides for Industrial Steel Decision Makers
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed mt-1">
+              Explore how design specifications, shop fabrication processes, and site erection coordination affect structure longevity, cost, and safety.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigate('resources')}
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-wider rounded-lg border border-sky-200 transition-colors cursor-pointer self-start sm:self-auto"
+          >
+            <span>All Resources</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'main-components-of-a-peb-structure')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Engineering</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                Main Components of a PEB Structure
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Detailed breakdown of primary frames, purlins, girts, sag rods, and IS 800 connection design.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'peb-manufacturing-and-fabrication-process')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Fabrication</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Manufacturing &amp; Fabrication Process
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Automated submerged arc welding, CNC cutting, edge prep, and shop trial assembly.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/company-industry-insights/industry-insights', 'why-coordination-between-design-fabrication-and-erection-matters')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Single-Source</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                Design, Fabrication &amp; Erection Coordination
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Why disjointed multi-vendor contracting creates fitment errors and how unified workflow eliminates them.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Article</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/free-resources/project-checklist')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Planning Tool</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Project Planning Checklist
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Complete checklist for civil foundation verification, anchor bolt surveys, and crane logistics.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>View Checklist</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 3. BOTTOM CTA */}

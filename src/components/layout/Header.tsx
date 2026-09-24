@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { COMPANY_CONFIG } from '../../data/company';
 import { LogoInfra } from '../common/LogoInfra';
-import { Phone, MessageSquare, Search, Menu, X, ChevronDown, Wrench, ShieldAlert } from 'lucide-react';
+import { Phone, MessageSquare, Search, Menu, X, ChevronDown, Wrench, BookOpen } from 'lucide-react';
 import { SERVICES_DATA } from '../../data/services';
 
 interface HeaderProps {
@@ -20,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,12 +33,20 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems = [
     { label: 'Home', route: 'home' },
     { label: 'About Us', route: 'about' },
-    { label: 'Services', route: 'services', hasDropdown: true },
+    { label: 'Services', route: 'services', dropdownType: 'services' },
     { label: 'Industries', route: 'industries' },
     { label: 'Projects', route: 'projects' },
     { label: 'Why Choose Us', route: 'why-choose-us' },
     { label: 'FAQs', route: 'faqs' },
+    { label: 'Resources', route: 'resources', dropdownType: 'resources' },
     { label: 'Contact Us', route: 'contact' }
+  ];
+
+  const resourceDropdownItems = [
+    { label: 'Knowledge Hub', route: 'resources/knowledge-hub', desc: 'PEB guides, technical articles & engineering codes' },
+    { label: 'Free Resources', route: 'resources/free-resources', desc: 'Buyer guides, tender checklists & glossary' },
+    { label: 'Tools', route: 'resources/tools', desc: 'Structural steel & PEB tonnage estimator' },
+    { label: 'Company / Industry Insights', route: 'resources/company-industry-insights', desc: 'Industry perspective & verified case studies' }
   ];
 
   return (
@@ -61,11 +70,11 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-6 lg:gap-8">
+            <nav className="hidden xl:flex items-center gap-4 2xl:gap-6">
               {navItems.map((item) => {
                 const isActive = currentRoute === item.route;
 
-                if (item.hasDropdown) {
+                if (item.dropdownType === 'services') {
                   return (
                     <div 
                       key={item.route}
@@ -75,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({
                     >
                       <button
                         onClick={() => onNavigate('services')}
-                        className={`flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold transition-all ${
+                        className={`flex items-center gap-1 text-xs uppercase tracking-wider font-semibold transition-all ${
                           isActive || currentRoute.startsWith('service')
                             ? 'text-sky-600 underline underline-offset-8 decoration-2 decoration-sky-500'
                             : 'text-slate-700 hover:text-sky-600'
@@ -114,6 +123,66 @@ export const Header: React.FC<HeaderProps> = ({
                               className="w-full text-center text-xs text-sky-600 font-semibold py-1 hover:underline uppercase tracking-wider"
                             >
                               View All Services Overview →
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (item.dropdownType === 'resources') {
+                  return (
+                    <div 
+                      key={item.route}
+                      className="relative"
+                      onMouseEnter={() => setResourcesDropdownOpen(true)}
+                      onMouseLeave={() => setResourcesDropdownOpen(false)}
+                    >
+                      <button
+                        onClick={() => onNavigate('resources')}
+                        className={`flex items-center gap-1 text-xs uppercase tracking-wider font-semibold transition-all ${
+                          isActive || currentRoute.startsWith('resources')
+                            ? 'text-sky-600 underline underline-offset-8 decoration-2 decoration-sky-500'
+                            : 'text-slate-700 hover:text-sky-600'
+                        }`}
+                      >
+                        {item.label}
+                        <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+                      </button>
+
+                      {/* Dropdown Menu */}
+                      {resourcesDropdownOpen && (
+                        <div className="absolute top-full left-0 mt-3 w-80 bg-white border border-sky-200 shadow-2xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-150 rounded-lg">
+                          <div className="px-3 py-2 text-[10px] font-mono uppercase text-sky-600 font-bold border-b border-sky-100 flex items-center justify-between">
+                            <span>Resource Ecosystem</span>
+                            <span>Foundation</span>
+                          </div>
+                          {resourceDropdownItems.map((res) => (
+                            <button
+                              key={res.route}
+                              onClick={() => {
+                                onNavigate(res.route);
+                                setResourcesDropdownOpen(false);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-slate-700 hover:text-sky-700 hover:bg-sky-50 transition-colors flex items-start gap-2.5 group rounded-md cursor-pointer"
+                            >
+                              <span className="w-1.5 h-1.5 bg-sky-300 group-hover:bg-sky-600 transition-colors rounded-full mt-1.5 flex-shrink-0"></span>
+                              <div>
+                                <div className="font-medium group-hover:text-sky-700 transition-colors">{res.label}</div>
+                                <div className="text-[10px] text-slate-400 group-hover:text-slate-500 transition-colors line-clamp-1">{res.desc}</div>
+                              </div>
+                            </button>
+                          ))}
+                          <div className="pt-2 border-t border-sky-100">
+                            <button
+                              onClick={() => {
+                                onNavigate('resources');
+                                setResourcesDropdownOpen(false);
+                              }}
+                              className="w-full text-center text-xs text-sky-600 font-semibold py-1 hover:underline uppercase tracking-wider cursor-pointer"
+                            >
+                              View All Resources Overview →
                             </button>
                           </div>
                         </div>
@@ -237,16 +306,39 @@ export const Header: React.FC<HeaderProps> = ({
                     setMobileMenuOpen(false);
                   }}
                   className={`w-full text-left py-3 px-4 transition-colors flex items-center justify-between uppercase tracking-wider text-xs rounded-md ${
-                    currentRoute === item.route
+                    currentRoute === item.route || (item.route === 'resources' && currentRoute.startsWith('resources'))
                       ? 'bg-sky-50 text-sky-600 border-l-4 border-sky-600 font-bold'
                       : 'text-slate-700 hover:bg-sky-50 hover:text-sky-700'
                   }`}
                 >
                   <span>{item.label}</span>
-                  {item.hasDropdown && <span className="text-[10px] text-sky-600 font-mono font-bold">9 Services</span>}
+                  {item.dropdownType === 'services' && <span className="text-[10px] text-sky-600 font-mono font-bold">9 Services</span>}
+                  {item.dropdownType === 'resources' && <span className="text-[10px] text-sky-600 font-mono font-bold">Resources ▾</span>}
                 </button>
               ))}
             </nav>
+
+            {/* Mobile Resources Fast-links */}
+            <div className="bg-sky-50/70 border border-sky-200 p-4 space-y-2 rounded-lg">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-sky-700 font-bold">
+                <BookOpen className="w-3.5 h-3.5" />
+                Resource Ecosystem (Level 1):
+              </div>
+              <div className="grid grid-cols-1 gap-1.5">
+                {resourceDropdownItems.map((r) => (
+                  <button
+                    key={r.route}
+                    onClick={() => {
+                      onNavigate(r.route);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="text-left text-xs py-1.5 px-2.5 text-slate-600 hover:text-sky-700 hover:bg-white rounded flex items-center justify-between"
+                  >
+                    <span>• {r.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {/* Mobile Services Fast-links */}
             <div className="bg-sky-50/70 border border-sky-200 p-4 space-y-2 rounded-lg">

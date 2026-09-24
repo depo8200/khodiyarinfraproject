@@ -22,10 +22,30 @@ export const StructuralEstimator: React.FC<StructuralEstimatorProps> = ({ onOpen
   const widthId = useId();
   const eaveHeightId = useId();
 
+  // Controlled unit conversion handler to preserve proportional dimensions
+  const handleUnitChange = (newUnit: 'meters' | 'feet') => {
+    if (newUnit === unit) return;
+    if (newUnit === 'meters') {
+      setLength(prev => Math.min(150, Math.max(12, Math.round(prev * 0.3048))));
+      setWidth(prev => Math.min(75, Math.max(10, Math.round(prev * 0.3048))));
+      setEaveHeight(prev => Math.min(18, Math.max(4, Math.round(prev * 0.3048))));
+    } else {
+      setLength(prev => Math.min(500, Math.max(40, Math.round(prev / 0.3048))));
+      setWidth(prev => Math.min(250, Math.max(30, Math.round(prev / 0.3048))));
+      setEaveHeight(prev => Math.min(60, Math.max(14, Math.round(prev / 0.3048))));
+    }
+    setUnit(newUnit);
+  };
+
+  // Safe sanitized dimensions (prevents negative, NaN, or non-finite inputs)
+  const safeLength = Math.max(0, Number.isFinite(length) ? length : 0);
+  const safeWidth = Math.max(0, Number.isFinite(width) ? width : 0);
+  const safeEaveHeight = Math.max(0, Number.isFinite(eaveHeight) ? eaveHeight : 0);
+
   // Calculations
-  const areaSqFt = unit === 'feet' ? length * width : (length * width) * 10.7639;
-  const areaSqM = unit === 'meters' ? length * width : (length * width) / 10.7639;
-  const heightM = unit === 'meters' ? eaveHeight : eaveHeight * 0.3048;
+  const areaSqFt = unit === 'feet' ? safeLength * safeWidth : (safeLength * safeWidth) * 10.76391;
+  const areaSqM = unit === 'meters' ? safeLength * safeWidth : (safeLength * safeWidth) / 10.76391;
+  const heightM = unit === 'meters' ? safeEaveHeight : safeEaveHeight * 0.3048;
 
   // Approximate kg/sq.m based on building type and crane
   let baseKgPerSqM = 32;
@@ -38,8 +58,9 @@ export const StructuralEstimator: React.FC<StructuralEstimatorProps> = ({ onOpen
   if (craneCapacity === '10 Ton') baseKgPerSqM += 12;
   if (craneCapacity === '20 Ton+') baseKgPerSqM += 20;
 
-  const estimatedTonnageLow = Math.round((areaSqM * baseKgPerSqM * 0.92) / 1000);
-  const estimatedTonnageHigh = Math.round((areaSqM * baseKgPerSqM * 1.08) / 1000);
+  const estimatedTonnageLow = Math.max(0, Math.round((areaSqM * baseKgPerSqM * 0.92) / 1000));
+  const estimatedTonnageHigh = Math.max(0, Math.round((areaSqM * baseKgPerSqM * 1.08) / 1000));
+  const clearVolumeM3 = Math.max(0, Math.round(areaSqM * heightM));
 
   const handleSendEstimateToWhatsApp = () => {
     const text = `*Structural Estimate Request — KHODIYAR INFRAPROJECT*
@@ -84,7 +105,7 @@ Please provide a detailed BOQ and structural budget proposal.`;
             <span className="text-xs font-mono text-slate-500 px-2 uppercase font-semibold">Units:</span>
             <button
               type="button"
-              onClick={() => setUnit('feet')}
+              onClick={() => handleUnitChange('feet')}
               className={`px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all rounded-md cursor-pointer ${
                 unit === 'feet' ? 'bg-sky-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
@@ -93,7 +114,7 @@ Please provide a detailed BOQ and structural budget proposal.`;
             </button>
             <button
               type="button"
-              onClick={() => setUnit('meters')}
+              onClick={() => handleUnitChange('meters')}
               className={`px-3 py-1 text-xs font-bold uppercase tracking-wider transition-all rounded-md cursor-pointer ${
                 unit === 'meters' ? 'bg-sky-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
@@ -224,7 +245,7 @@ Please provide a detailed BOQ and structural budget proposal.`;
             </div>
             <div className="flex justify-between py-1 border-b border-sky-100">
               <span className="text-slate-500">Clear Volume:</span>
-              <span className="font-bold text-slate-900">{Math.round(areaSqM * heightM).toLocaleString()} m³</span>
+              <span className="font-bold text-slate-900">{clearVolumeM3.toLocaleString()} m³</span>
             </div>
             <div className="flex justify-between py-1 border-b border-sky-100">
               <span className="text-slate-500">Structural System:</span>
@@ -234,6 +255,14 @@ Please provide a detailed BOQ and structural budget proposal.`;
               <span className="text-slate-500">Erection Duration:</span>
               <span className="font-bold text-emerald-600">~3 to 6 Weeks</span>
             </div>
+          </div>
+
+          {/* Mandatory Engineering Disclaimer Safeguard */}
+          <div className="bg-amber-50 border border-amber-200/90 rounded-lg p-3 text-amber-900 flex items-start gap-2.5">
+            <Shield className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+            <p className="leading-relaxed text-[11px] font-sans">
+              <strong>Notice:</strong> Results are preliminary estimates for planning purposes only. Actual steel quantities, structural requirements and costs depend on engineering design, site conditions, applicable standards and project specifications. Final values must be verified by a qualified structural engineer.
+            </p>
           </div>
 
           <div className="pt-2 space-y-3">

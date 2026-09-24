@@ -82,3 +82,58 @@ export type PageRoute =
   | { name: 'why-choose-us' }
   | { name: 'faqs' }
   | { name: 'contact' };
+
+export interface CompanyUpdate {
+  id: string;
+  title: string;
+  slug: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  content: string;
+  image?: string;
+}
+
+export interface IndustryInsight {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  readTime: string;
+  date: string;
+  summary: string;
+  keyTakeaways: string[];
+  contentSections: {
+    heading: string;
+    paragraphs: string[];
+    bulletPoints?: string[];
+  }[];
+  practicalChecklist?: string[];
+  relatedResources?: {
+    title: string;
+    route: string;
+    badge: string;
+  }[];
+}
+
+export interface CaseStudy {
+  id: string;
+  title: string;
+  slug: string;
+  client?: string;
+  location?: string;
+  projectType: string;
+  date?: string;
+  projectSize?: string;
+  scope?: string;
+  requirements?: string;
+  solution?: string;
+  execution?: string;
+  outcome?: string;
+  images?: string[];
+  relatedResources?: {
+    title: string;
+    route: string;
+  }[];
+}
+

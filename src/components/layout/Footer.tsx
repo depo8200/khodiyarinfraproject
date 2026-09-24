@@ -127,19 +127,49 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                 Pages
               </h4>
               <ul className="space-y-1.5 text-xs">
-                {['About Us', 'Why Choose Us', 'Projects', 'FAQs', 'Contact Us'].map((label) => {
-                  const r = label.toLowerCase().replace(/\s+/g, '-');
-                  return (
-                    <li key={label}>
-                      <button
-                        onClick={() => onNavigate(r === 'contact-us' ? 'contact' : r)}
-                        className="text-slate-500 hover:text-sky-600 transition-colors"
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  );
-                })}
+                {[
+                  { label: 'About Us', route: 'about' },
+                  { label: 'Why Choose Us', route: 'why-choose-us' },
+                  { label: 'Projects', route: 'projects' },
+                  { label: 'FAQs', route: 'faqs' },
+                  { label: 'Contact Us', route: 'contact' }
+                ].map((item) => (
+                  <li key={item.label}>
+                    <button
+                      onClick={() => onNavigate(item.route)}
+                      className="text-slate-500 hover:text-sky-600 transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-2">
+              <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-2">
+                Resource Ecosystem
+              </h4>
+              <ul className="space-y-1.5 text-xs">
+                {[
+                  { label: 'Resources Gateway', route: 'resources' },
+                  { label: 'PEB Knowledge Hub', route: 'resources/knowledge-hub' },
+                  { label: 'Free Toolkits & Guides', route: 'resources/free-resources' },
+                  { label: 'Structural Estimator & Tools', route: 'resources/tools' },
+                  { label: 'Company / Industry Insights', route: 'resources/company-industry-insights' },
+                  { label: '↳ Company Updates', route: 'resources/company-industry-insights/company-updates' },
+                  { label: '↳ Industry Insights (20 Articles)', route: 'resources/company-industry-insights/industry-insights' },
+                  { label: '↳ Verified Case Studies', route: 'resources/company-industry-insights/case-studies' }
+                ].map((item) => (
+                  <li key={item.route}>
+                    <button
+                      onClick={() => onNavigate(item.route)}
+                      className="text-slate-500 hover:text-sky-600 transition-colors text-left"
+                    >
+                      {item.label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

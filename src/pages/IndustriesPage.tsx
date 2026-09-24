@@ -13,7 +13,10 @@ import {
   Warehouse, 
   ShieldCheck,
   Flame,
-  Wrench
+  Wrench,
+  BookOpen,
+  FileText,
+  Calculator
 } from 'lucide-react';
 
 interface IndustriesPageProps {
@@ -24,6 +27,100 @@ interface IndustriesPageProps {
 export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOpenQuote }) => {
   const coldStorage = INDUSTRIES_DATA.find(i => i.id === 'cold-storage-facilities' || i.slug.includes('cold-storage')) || INDUSTRIES_DATA[0];
   const otherIndustries = INDUSTRIES_DATA.filter(i => i.id !== coldStorage.id);
+
+  const getIndustryResources = (industryId: string) => {
+    switch (industryId) {
+      case 'manufacturing-plants-factories':
+        return [
+          {
+            title: 'Factory Building Planning Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'factory-building-planning-guide',
+            desc: 'Production layouts, crane bays, clear spans & utility integration.'
+          },
+          {
+            title: 'Manufacturing Plant Building Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'manufacturing-plant-building-guide',
+            desc: 'Heavy structural design, ventilation, and machinery foundation coordination.'
+          },
+          {
+            title: 'Factory Building Planning: Key Questions',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'factory-building-planning-key-questions-to-consider',
+            desc: 'Essential checklist before finalizing factory shed dimensions.'
+          }
+        ];
+      case 'warehouses-distribution-centers':
+        return [
+          {
+            title: 'PEB Warehouse Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'peb-warehouse-guide',
+            desc: 'Optimal column grids, high-bay racking, dock canopies & eave heights.'
+          },
+          {
+            title: 'Warehouse Planning Considerations',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'warehouse-planning-considerations-for-industrial-projects',
+            desc: 'Volumetric efficiency, forklift lanes, and thermal roofing design.'
+          },
+          {
+            title: 'Distribution Center Building Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'distribution-center-building-guide',
+            desc: 'Cross-docking layouts, high turnaround bays, and apron sizing.'
+          }
+        ];
+      case 'heavy-industrial-buildings':
+        return [
+          {
+            title: 'Heavy Industrial Building Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'heavy-industrial-building-guide',
+            desc: 'Thick plate girders, surge trusses, high-tonnage crane corridors & high heat.'
+          },
+          {
+            title: 'Industrial Building Expansion Planning',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'future-expansion-considerations-for-industrial-buildings',
+            desc: 'Designing end-wall frames and foundation provisions for future expansion.'
+          }
+        ];
+      case 'light-industrial-buildings':
+        return [
+          {
+            title: 'Light Industrial Building Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'light-industrial-building-guide',
+            desc: 'Economical standard portal spans, rapid delivery & modular assembly.'
+          },
+          {
+            title: 'Industrial Shed Planning Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'industrial-shed-planning-guide',
+            desc: 'Roof pitches, daylighting panels, and fast-track site erection.'
+          }
+        ];
+      case 'workshops-garages':
+        return [
+          {
+            title: 'Workshop Building Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'workshop-building-guide',
+            desc: 'Wide access bays, monorail hoists, smoke ventilation & vehicle lifts.'
+          },
+          {
+            title: 'Industrial Shed Planning Guide',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'industrial-shed-planning-guide',
+            desc: 'Functional portal spans, durable column protection & cross-breezes.'
+          }
+        ];
+      default:
+        return [];
+    }
+  };
 
   return (
     <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,6 +229,30 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
                 ))}
               </div>
             </div>
+
+            {/* Cold Storage Technical Resources (Level 7 Additive Integration) */}
+            <div className="pt-3 border-t border-sky-100 space-y-2">
+              <div className="text-xs font-mono uppercase text-sky-700 font-bold tracking-wider flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5" />
+                Related Cold Chain Technical Guides:
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <button
+                  onClick={() => onNavigate('resources/knowledge-hub/industrial-building-guides', 'cold-storage-building-guide')}
+                  className="p-2.5 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 font-semibold border border-sky-200 text-left flex items-center justify-between group cursor-pointer"
+                >
+                  <span className="line-clamp-1">Cold Storage Building Guide</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+                <button
+                  onClick={() => onNavigate('resources/company-industry-insights/industry-insights', 'industrial-building-ventilation-considerations')}
+                  className="p-2.5 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 font-semibold border border-sky-200 text-left flex items-center justify-between group cursor-pointer"
+                >
+                  <span className="line-clamp-1">Ventilation &amp; Insulation Guide</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="lg:col-span-5">
@@ -207,6 +328,28 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
                     ))}
                   </div>
                 </div>
+
+                {/* Sector Technical Guides (Level 7 Additive Integration) */}
+                {getIndustryResources(ind.id).length > 0 && (
+                  <div className="space-y-2 pt-2 border-t border-sky-100">
+                    <div className="text-[10px] font-mono uppercase text-sky-700 font-bold tracking-wider flex items-center gap-1.5">
+                      <BookOpen className="w-3 h-3 text-sky-600" />
+                      Sector Planning Guides:
+                    </div>
+                    <div className="space-y-1 text-xs">
+                      {getIndustryResources(ind.id).slice(0, 2).map((res, ri) => (
+                        <button
+                          key={ri}
+                          onClick={() => onNavigate(res.route, res.slug)}
+                          className="w-full text-left p-2 rounded-lg bg-sky-50/60 hover:bg-sky-50 border border-sky-200/70 hover:border-sky-300 text-slate-800 hover:text-sky-600 transition-colors flex items-center justify-between group cursor-pointer"
+                        >
+                          <span className="font-semibold line-clamp-1">{res.title}</span>
+                          <ArrowRight className="w-3 h-3 text-sky-500 group-hover:translate-x-0.5 transition-transform flex-shrink-0 ml-1" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="pt-4 border-t border-sky-100 flex items-center justify-between gap-3">
@@ -226,6 +369,38 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 3.5 INTERACTIVE SECTOR PLANNING SUITE (Level 7 Additive Integration) */}
+      <section className="p-6 sm:p-8 bg-gradient-to-r from-sky-50 via-white to-sky-100/50 border border-sky-200 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="space-y-2 text-left">
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-sky-100 text-sky-800 text-[11px] font-mono uppercase font-bold rounded">
+            <Calculator className="w-3.5 h-3.5" />
+            Sector Engineering Planning Tools
+          </div>
+          <h3 className="text-lg sm:text-xl font-black text-slate-900 font-sans uppercase tracking-tight">
+            Configure Your Industrial Shed or Warehouse Specifications
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+            Test span configurations, assess crane bracket feasibility, and determine preliminary steel tonnage tailored to your manufacturing or warehouse sector.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+          <button
+            onClick={() => onNavigate('resources/tools/project-planning-tool')}
+            className="px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors shadow-md flex items-center gap-2 cursor-pointer"
+          >
+            <span>Launch Planning Tool</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => onNavigate('resources/tools/peb-requirement-estimator')}
+            className="px-4 py-3 bg-white hover:bg-sky-50 text-slate-800 font-bold text-xs uppercase tracking-wider rounded-lg border border-sky-200 transition-colors shadow-sm cursor-pointer"
+          >
+            <span>Requirement Estimator</span>
+          </button>
         </div>
       </section>
 

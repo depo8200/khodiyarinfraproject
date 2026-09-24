@@ -13,7 +13,9 @@ import {
   Cpu, 
   Truck, 
   Layers, 
-  Link as LinkIcon 
+  Link as LinkIcon,
+  BookOpen,
+  FileText
 } from 'lucide-react';
 
 interface WhyChooseUsPageProps {
@@ -22,6 +24,48 @@ interface WhyChooseUsPageProps {
 }
 
 export const WhyChooseUsPage: React.FC<WhyChooseUsPageProps> = ({ onNavigate, onOpenQuote }) => {
+  const getDifferentiatorResource = (idx: number) => {
+    switch (idx) {
+      case 0:
+        return {
+          title: 'Why Coordination Between Design, Fabrication & Erection Matters',
+          route: 'resources/company-industry-insights/industry-insights',
+          slug: 'why-coordination-between-design-fabrication-and-erection-matters',
+          label: 'Single-Source Architecture'
+        };
+      case 1:
+        return {
+          title: 'Structural Steel Fabrication Basics',
+          route: 'resources/knowledge-hub/technical-articles',
+          slug: 'structural-steel-fabrication-basics',
+          label: 'Engineering Standards'
+        };
+      case 2:
+        return {
+          title: 'Industrial Building Logistics & Material Movement Considerations',
+          route: 'resources/company-industry-insights/industry-insights',
+          slug: 'industrial-building-logistics-and-material-movement-considerations',
+          label: 'Logistics Optimization'
+        };
+      case 3:
+        return {
+          title: 'PEB vs Conventional Steel Cost Comparison',
+          route: 'resources/knowledge-hub/comparisons',
+          slug: 'peb-vs-conventional-steel-cost-comparison',
+          label: 'Cost Transparency'
+        };
+      case 4:
+        return {
+          title: 'Quality Control Considerations in PEB Manufacturing',
+          route: 'resources/company-industry-insights/industry-insights',
+          slug: 'quality-control-considerations-in-peb-manufacturing',
+          label: 'Quality Assurance'
+        };
+      default:
+        return null;
+    }
+  };
+
   const comparisonRows = [
     {
       metric: 'Accountability Model',
@@ -164,6 +208,23 @@ export const WhyChooseUsPage: React.FC<WhyChooseUsPageProps> = ({ onNavigate, on
                   ))}
                 </div>
               </div>
+
+              {/* Contextual Resource Link (Level 7 Additive Integration) */}
+              {getDifferentiatorResource(idx) && (
+                <div className="pt-3 border-t border-sky-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <span className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-sky-600" />
+                    Related Engineering Publication:
+                  </span>
+                  <button
+                    onClick={() => onNavigate(getDifferentiatorResource(idx)!.route, getDifferentiatorResource(idx)!.slug)}
+                    className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1.5 cursor-pointer group/link self-start sm:self-auto"
+                  >
+                    <span>{getDifferentiatorResource(idx)!.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -217,6 +278,90 @@ export const WhyChooseUsPage: React.FC<WhyChooseUsPageProps> = ({ onNavigate, on
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 3.5 TECHNICAL COMPARISON GUIDES & RESEARCH (Level 7 Additive Integration) */}
+      <section className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-10 space-y-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-sky-100 pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-sky-50 text-sky-700 text-xs font-mono uppercase font-bold tracking-wider rounded border border-sky-200">
+              <BookOpen className="w-3.5 h-3.5" />
+              Engineering Benchmarks
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-sans uppercase tracking-tight mt-1.5">
+              Technical Comparison Guides &amp; Decision Frameworks
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed mt-1">
+              Read transparent engineering analyses comparing shop fabrication to field welding, PEB vs conventional steel weight, and foundation economics.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigate('resources/knowledge-hub/comparisons')}
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-wider rounded-lg border border-sky-200 transition-colors cursor-pointer self-start sm:self-auto"
+          >
+            <span>All Comparisons</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/comparisons', 'peb-vs-conventional-steel-building')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Framing Comparison</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB vs Conventional Steel Building
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Weight savings of 25–35%, foundation dead load reductions, and schedule comparisons.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Analysis</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/comparisons', 'factory-fabrication-vs-site-fabrication')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Fabrication Integrity</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                Factory Fabrication vs Site Fabrication
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Why automated submerged arc welding under controlled indoor jigs delivers superior defect-free joints.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Analysis</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/cost-planning', 'peb-building-cost-factors')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Cost Engineering</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Building Cost: Factors Affecting Cost
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Clear span ratios, bay modules, crane tonnage, and paint systems determining total investment.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Analysis</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
           </div>
         </div>
       </section>

@@ -29,7 +29,10 @@ import {
   Star,
   ExternalLink,
   MessageCircleQuestion,
-  Factory
+  Factory,
+  BookOpen,
+  FileText,
+  Calculator
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -682,6 +685,165 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
       {/* 6.5 TECHNICAL BUYER GUIDE: PEB & STRUCTURAL STEEL KNOWLEDGE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TechnicalBuyerGuide onNavigate={onNavigate} onOpenQuote={onOpenQuote} />
+      </section>
+
+      {/* 6.6 PEB KNOWLEDGE & RESOURCE ECOSYSTEM (Level 7 Additive Integration) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-sky-100 pb-6">
+          <div>
+            <span className="text-xs font-mono uppercase text-sky-600 font-bold tracking-widest">
+              Engineering Knowledge &amp; Planning
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 font-sans uppercase tracking-tight mt-1">
+              PEB Knowledge &amp; Resources
+            </h2>
+            <p className="text-slate-500 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+              Understand pre-engineered steel construction, project sizing, and procurement frameworks before engaging with our structural engineering desk.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigate('resources')}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-wider border border-sky-200 transition-colors cursor-pointer w-fit rounded-lg shadow-sm"
+          >
+            <span>Explore All PEB Resources</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* 4 Curated Resource Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Card 1: PEB Foundational Guide */}
+          <div className="bg-white border border-sky-200 hover:border-sky-400 rounded-2xl p-6 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <BookOpen className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] font-mono uppercase font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60 inline-block">
+                PEB Guide
+              </span>
+              <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2">
+                What Is a Pre-Engineered Building?
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed">
+                Foundational engineering guide explaining custom tapered portal frames, limit state mechanics, and IS 800:2007 design principles.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'what-is-a-pre-engineered-building')}
+              className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1.5 pt-2 border-t border-sky-100 cursor-pointer"
+            >
+              <span>Read PEB Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Card 2: PEB Buyer Guide */}
+          <div className="bg-white border border-sky-200 hover:border-sky-400 rounded-2xl p-6 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <FileText className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] font-mono uppercase font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60 inline-block">
+                Buyer Guide
+              </span>
+              <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2">
+                Industrial Buyer &amp; Procurement Guide
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed">
+                7-step procurement lifecycle, quotation comparison metrics, contract terms, and supplier vetting for industrial projects.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('resources/free-resources/peb-buyer-guide')}
+              className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1.5 pt-2 border-t border-sky-100 cursor-pointer"
+            >
+              <span>Explore Buyer Guide</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Card 3: Project Checklist */}
+          <div className="bg-white border border-sky-200 hover:border-sky-400 rounded-2xl p-6 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] font-mono uppercase font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60 inline-block">
+                Project Checklist
+              </span>
+              <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2">
+                PEB Requirement &amp; Planning Checklist
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed">
+                Checklist covering site conditions, crane load requirements, clear eave heights, and civil coordination parameters.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('resources/free-resources/peb-requirement-checklist')}
+              className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1.5 pt-2 border-t border-sky-100 cursor-pointer"
+            >
+              <span>View Requirement Checklist</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Card 4: Industry Insight */}
+          <div className="bg-white border border-sky-200 hover:border-sky-400 rounded-2xl p-6 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <Factory className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] font-mono uppercase font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60 inline-block">
+                Industry Insight
+              </span>
+              <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2">
+                PEB in Modern Industrial Construction
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed">
+                Technical perspectives on why pre-engineered steel framing dominates modern warehouses, factory sheds, and heavy industrial facilities.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('resources/company-industry-insights/industry-insights', 'how-peb-is-used-in-modern-industrial-construction')}
+              className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1.5 pt-2 border-t border-sky-100 cursor-pointer"
+            >
+              <span>Read Industry Insight</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+
+        {/* Planning Tool Banner */}
+        <div className="p-6 sm:p-8 bg-gradient-to-r from-sky-50 via-white to-sky-100/50 border border-sky-200 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="space-y-2 text-left">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-sky-100 text-sky-800 text-[11px] font-mono uppercase font-bold rounded">
+              <Calculator className="w-3.5 h-3.5" />
+              Interactive Planning Suite
+            </div>
+            <h3 className="text-lg sm:text-xl font-black text-slate-900 font-sans uppercase tracking-tight">
+              Plan Your PEB Project Before Consulting Engineers
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+              Calculate preliminary steel tonnage, assess crane span feasibility, and generate a downloadable project blueprint using our interactive tools.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+            <button
+              onClick={() => onNavigate('resources/tools/project-planning-tool')}
+              className="px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors shadow-md flex items-center gap-2 cursor-pointer"
+            >
+              <span>Plan Your PEB Project</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onNavigate('resources/tools/peb-requirement-estimator')}
+              className="px-4 py-3 bg-white hover:bg-sky-50 text-slate-800 font-bold text-xs uppercase tracking-wider rounded-lg border border-sky-200 transition-colors shadow-sm cursor-pointer"
+            >
+              <span>Requirement Estimator</span>
+            </button>
+          </div>
+        </div>
       </section>
 
       {/* 7. HOW WE WORK / 5-STEP PROJECT PROCESS */}

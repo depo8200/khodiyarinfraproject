@@ -20,7 +20,9 @@ import {
   ChevronDown,
   Building2,
   Target,
-  Layers
+  Layers,
+  BookOpen,
+  FileText
 } from 'lucide-react';
 
 interface ServiceDetailPageProps {
@@ -49,6 +51,181 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   }).slice(0, 3);
 
   const displayFaqs = relevantFaqs.length > 0 ? relevantFaqs : FAQS_DATA.slice(0, 3);
+
+  // Level 7: Contextual Resources mapping for this service (2-4 resources)
+  const serviceResources = (() => {
+    switch (service.slug) {
+      case 'in-house-design':
+      case 'designing-and-production':
+        return [
+          {
+            title: 'Main Components of a PEB Structure',
+            desc: 'Primary framing, secondary framing, bracing systems, and connection detailing under IS 800:2007.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'main-components-of-a-peb-structure',
+            tag: 'PEB Guide'
+          },
+          {
+            title: 'Primary and Secondary Framing Systems',
+            desc: 'Load transfer mechanics, tapered built-up frames, cold-formed Z/C purlins, and sag rods.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'primary-and-secondary-framing-systems-in-peb',
+            tag: 'Framing Guide'
+          },
+          {
+            title: 'PEB Foundation Considerations',
+            desc: 'Base plate moments, foundation pin vs rigid models, soil bearing, and anchor bolt coordination.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'peb-foundation-considerations',
+            tag: 'Civil / Struct'
+          },
+          {
+            title: 'PEB Quality Control and Inspection',
+            desc: 'Engineering shop drawing verification, material test certificates, and fabrication tolerances.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'peb-quality-control-and-inspection',
+            tag: 'QA / Code'
+          }
+        ];
+
+      case 'factory-fabrication':
+        return [
+          {
+            title: 'PEB Manufacturing and Fabrication Process',
+            desc: 'Factory workflows: CNC plate cutting, automated SAW beam welding, and quality checks.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'peb-manufacturing-and-fabrication-process',
+            tag: 'Fabrication Guide'
+          },
+          {
+            title: 'Structural Steel Fabrication Basics',
+            desc: 'Weld joint geometries, cutting methods, and tolerance management for industrial steel.',
+            route: 'resources/knowledge-hub/technical-articles',
+            slug: 'structural-steel-fabrication-basics',
+            tag: 'Technical Article'
+          },
+          {
+            title: 'Factory Fabrication vs Site Fabrication',
+            desc: 'Why automated submerged arc welding delivers superior durability and precision over field fabrication.',
+            route: 'resources/knowledge-hub/comparisons',
+            slug: 'factory-fabrication-vs-site-fabrication',
+            tag: 'Comparison'
+          },
+          {
+            title: 'Quality Control Considerations in PEB Manufacturing',
+            desc: 'UT/MPI non-destructive testing, edge preparation standards, and coating DFT inspections.',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'quality-control-considerations-in-peb-manufacturing',
+            tag: 'Industry Insight'
+          }
+        ];
+
+      case 'logistics':
+        return [
+          {
+            title: 'Industrial Building Logistics & Material Movement',
+            desc: 'Material staging, crane clearance radii, access road specifications, and site routing.',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'industrial-building-logistics-and-material-movement-considerations',
+            tag: 'Logistics Guide'
+          },
+          {
+            title: 'Transportation & Site Access in PEB Planning',
+            desc: 'Truck trailer lengths, turning radii, and delivery sequencing to eliminate site congestion.',
+            route: 'resources/knowledge-hub/cost-planning',
+            slug: 'how-transportation-and-site-access-affect-peb-planning',
+            tag: 'Planning Guide'
+          },
+          {
+            title: 'Why Coordination Between Design, Fabrication & Erection Matters',
+            desc: 'Unified single-source coordination preventing parts mismatches and site downtime.',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'why-coordination-between-design-fabrication-and-erection-matters',
+            tag: 'Coordination'
+          }
+        ];
+
+      case 'turnkey-erection':
+      case 'erection-and-installation':
+        return [
+          {
+            title: 'PEB Erection and Installation Process',
+            desc: 'Step-by-step site erection: column positioning, rafter pre-assembly, tandem crane lifts, and bracing.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'peb-building-construction-process',
+            tag: 'Erection Guide'
+          },
+          {
+            title: 'PEB Project Planning Checklist',
+            desc: 'Civil foundation readiness, anchor bolt survey, crane pad preparation, and power availability.',
+            route: 'resources/free-resources/project-checklist',
+            tag: 'Project Checklist'
+          },
+          {
+            title: 'How Site Conditions Affect PEB Planning',
+            desc: 'Soil conditions, wind exposure, site slope, and crane movement clearance planning.',
+            route: 'resources/knowledge-hub/cost-planning',
+            slug: 'how-site-conditions-affect-peb-planning',
+            tag: 'Site Planning'
+          }
+        ];
+
+      case 'cold-storage-framing':
+        return [
+          {
+            title: 'Cold Storage Building Guide',
+            desc: 'Thermal integrity, zero thermal bridging purlin design, and heavy suspended ceiling evaporator loads.',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'cold-storage-building-guide',
+            tag: 'Industrial Guide'
+          },
+          {
+            title: 'PEB Requirement Checklist',
+            desc: 'Thermal insulation thickness, vapor barrier specs, and eave height checklist for cold stores.',
+            route: 'resources/free-resources/peb-requirement-checklist',
+            tag: 'Requirement Tool'
+          },
+          {
+            title: 'Industrial Building Ventilation Considerations',
+            desc: 'Condensation mitigation, air exchange, and roof insulation engineering for controlled temperature plants.',
+            route: 'resources/company-industry-insights/industry-insights',
+            slug: 'industrial-building-ventilation-considerations',
+            tag: 'Engineering Guide'
+          }
+        ];
+
+      default:
+        return [
+          {
+            title: 'What Is a Pre-Engineered Building?',
+            desc: 'Structural advantages, framing concepts, and limit state mechanics under Indian Standards.',
+            route: 'resources/knowledge-hub/peb-guides',
+            slug: 'what-is-a-pre-engineered-building',
+            tag: 'PEB Guide'
+          },
+          {
+            title: 'PEB Buyer Guide & Procurement Framework',
+            desc: '7-step lifecycle for selecting PEB contractors, comparing BOQ quotes, and avoiding hidden extras.',
+            route: 'resources/free-resources/peb-buyer-guide',
+            tag: 'Buyer Guide'
+          },
+          {
+            title: 'PEB Building Cost: Factors Affecting Total Cost',
+            desc: 'Steel tonnage drivers, span length ratios, bay spacing optimization, and coating specifications.',
+            route: 'resources/knowledge-hub/cost-planning',
+            slug: 'peb-building-cost-factors',
+            tag: 'Cost & Planning'
+          },
+          {
+            title: 'Industrial Shed Planning Guide',
+            desc: 'Span configurations, natural daylighting, crane beam sizing, and future expansion planning.',
+            route: 'resources/knowledge-hub/industrial-building-guides',
+            slug: 'industrial-shed-planning-guide',
+            tag: 'Shed Guide'
+          }
+        ];
+    }
+  })();
 
   return (
     <div className="pt-28 md:pt-36 pb-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -373,6 +550,58 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
               >
                 Speak with a Structural Engineer →
               </button>
+            </div>
+          </div>
+
+          {/* Contextual Engineering Guides & Planning Resources (Level 7 Additive Integration) */}
+          <div className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-8 space-y-5 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span className="text-[10px] font-mono uppercase text-sky-600 font-bold tracking-wider">
+                  Technical Knowledge Base
+                </span>
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 font-sans uppercase tracking-tight flex items-center gap-2 mt-0.5">
+                  <BookOpen className="w-5 h-5 text-sky-600" />
+                  Relevant Engineering Guides &amp; Resources
+                </h3>
+              </div>
+              <button
+                onClick={() => onNavigate('resources')}
+                className="text-xs font-bold text-sky-600 hover:text-sky-700 uppercase tracking-wider flex items-center gap-1 cursor-pointer self-start sm:self-auto"
+              >
+                <span>All Resources</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Explore in-depth design criteria, fabrication tolerances, and planning checklists directly related to {service.title.toLowerCase()}:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              {serviceResources.map((res, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => onNavigate(res.route, res.slug)}
+                  className="p-4 bg-sky-50/50 hover:bg-sky-50 border border-sky-200/80 hover:border-sky-400 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-mono uppercase font-bold text-sky-700 bg-white px-2 py-0.5 rounded border border-sky-200 inline-block">
+                      {res.tag}
+                    </span>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                      {res.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-600 leading-relaxed line-clamp-2">
+                      {res.desc}
+                    </p>
+                  </div>
+                  <div className="text-[11px] font-bold text-sky-600 flex items-center gap-1 pt-1">
+                    <span>Read Engineering Guide</span>
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -16,7 +16,8 @@ import {
   Cpu, 
   Truck, 
   CheckCircle2,
-  MapPin
+  MapPin,
+  BookOpen
 } from 'lucide-react';
 
 interface AboutPageProps {
@@ -218,6 +219,109 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenQuote })
             <div className="text-sky-700 font-bold uppercase tracking-wider">AWS D1.1 / IS 9595</div>
             <div className="text-slate-900 font-semibold">Structural Welding Standards</div>
             <div className="text-[11px] text-slate-500">Full Penetration SAW Welds &amp; NDT</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5 CONTEXTUAL EDUCATIONAL GUIDES (Level 7 Additive Integration) */}
+      <section className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-10 space-y-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-sky-100 pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-sky-50 text-sky-700 text-xs font-mono uppercase font-bold tracking-wider rounded border border-sky-200">
+              <BookOpen className="w-3.5 h-3.5" />
+              Technical Foundations
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-sans uppercase tracking-tight mt-1.5">
+              Learn More About PEB Projects
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed mt-1">
+              Explore in-depth technical guides explaining how pre-engineered buildings are calculated, manufactured, and erected to rigorous Indian Standard engineering codes.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides')}
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-wider rounded-lg border border-sky-200 transition-colors cursor-pointer self-start sm:self-auto"
+          >
+            <span>All 10 PEB Guides</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div 
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'what-is-a-pre-engineered-building')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Concept &amp; Mechanics</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                What Is a Pre-Engineered Building?
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Structural fundamentals of tapered built-up sections, portal frame mechanics, and envelope systems.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div 
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'peb-manufacturing-and-fabrication-process')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Shop Production</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Manufacturing &amp; Fabrication Process
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Step-by-step factory workflows from plate CNC cutting and automatic SAW welding to shot blasting.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div 
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'peb-building-construction-process')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Site Execution</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Building Construction Process
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Turnkey site phases from anchor bolt embedment to portal frame raising and Galvalume sheeting.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div 
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'peb-quality-control-and-inspection')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Quality Assurance</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Quality Control &amp; Inspection
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                NDT inspection protocols, MPI/UT weld tests, torque wrench bolt verification, and DFT testing.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
           </div>
         </div>
       </section>

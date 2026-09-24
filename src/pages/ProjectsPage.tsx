@@ -13,7 +13,10 @@ import {
   Calendar, 
   MapPin, 
   Scale, 
-  CheckCircle2 
+  CheckCircle2,
+  BookOpen,
+  FileText,
+  CheckSquare
 } from 'lucide-react';
 
 interface ProjectsPageProps {
@@ -183,6 +186,109 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenQu
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 2.5 PROJECT PLANNING & QA RESOURCES (Level 7 Additive Integration) */}
+      <section className="bg-white border border-sky-200 rounded-2xl p-6 sm:p-10 space-y-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-sky-100 pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-sky-50 text-sky-700 text-xs font-mono uppercase font-bold tracking-wider rounded border border-sky-200">
+              <BookOpen className="w-3.5 h-3.5" />
+              Engineering Execution Standards
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-sans uppercase tracking-tight mt-1.5">
+              Project Planning &amp; Quality Engineering Guides
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed mt-1">
+              Review how our structures are phased from foundation anchor surveying to heavy tandem crane erection, NDT testing, and final project handover.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigate('resources/free-resources')}
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-wider rounded-lg border border-sky-200 transition-colors cursor-pointer self-start sm:self-auto"
+          >
+            <span>Free Project Toolkits</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'peb-building-construction-process')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Erection Phase</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Construction Process
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Step-by-step site erection protocols, safety rigging, anchor alignment, and weather sealing.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/knowledge-hub/peb-guides', 'peb-quality-control-and-inspection')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Quality Assurance</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                Quality Control &amp; Inspection
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Factory NDT, weld ultrasonic tests, bolt preload checks, and corrosion protection verification.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>Read Guide</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/free-resources/project-checklist')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Planning Tool</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                PEB Project Planning Checklist
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Pre-construction site readiness, crane mobilization pads, anchor bolt templates, and civil checks.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>View Checklist</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('resources/company-industry-insights/case-studies')}
+            className="p-5 bg-sky-50/40 hover:bg-sky-50/80 border border-sky-100 hover:border-sky-300 rounded-xl transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+          >
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono text-sky-600 font-bold uppercase tracking-wider">Case Reference</span>
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                Verified Project Case Studies
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                Audited structural engineering retrospectives detailing span calculations, steel tonnage, and erection records.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-sky-600 flex items-center gap-1">
+              <span>View Case Studies</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
         </div>
       </section>
 

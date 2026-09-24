@@ -8,7 +8,10 @@ import {
   Phone, 
   MessageSquare, 
   Search, 
-  FileQuestion
+  FileQuestion,
+  ArrowRight,
+  BookOpen,
+  Calculator
 } from 'lucide-react';
 
 interface FaqPageProps {
@@ -19,6 +22,35 @@ interface FaqPageProps {
 export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate, onOpenQuote }) => {
   const [activeFaq, setActiveFaq] = useState<string | null>('faq-1');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const getFaqContextualLink = (faq: typeof FAQS_DATA[0]) => {
+    const q = faq.question.toLowerCase();
+    const c = (faq.category || '').toLowerCase();
+    if (q.includes('cost') || q.includes('price') || q.includes('rate') || c.includes('cost')) {
+      return {
+        label: 'Detailed Guide: PEB Building Cost Factors & Planning',
+        route: 'resources/knowledge-hub/cost-planning',
+        slug: 'peb-building-cost-factors'
+      };
+    }
+    if (q.includes('component') || q.includes('frame') || q.includes('structure') || q.includes('standard') || c.includes('peb')) {
+      return {
+        label: 'Engineering Guide: Main Components of a PEB Structure',
+        route: 'resources/knowledge-hub/peb-guides',
+        slug: 'main-components-of-a-peb-structure'
+      };
+    }
+    if (q.includes('plan') || q.includes('time') || q.includes('schedule') || q.includes('site') || q.includes('check')) {
+      return {
+        label: 'Planning Checklist: PEB Requirement & Site Checklist',
+        route: 'resources/free-resources/peb-requirement-checklist'
+      };
+    }
+    return {
+      label: 'Explore Our PEB Knowledge Hub',
+      route: 'resources/knowledge-hub'
+    };
+  };
 
   const filteredFaqs = FAQS_DATA.filter(
     f => f.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -94,14 +126,59 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate, onOpenQuote }) => 
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-100 bg-sky-50/20">
+                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-100 bg-sky-50/20 space-y-3">
                     <p>{faq.answer}</p>
+                    {(() => {
+                      const link = getFaqContextualLink(faq);
+                      return (
+                        <div className="pt-2 border-t border-sky-100/60">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onNavigate(link.route, link.slug);
+                            }}
+                            className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1 cursor-pointer"
+                          >
+                            <span>{link.label}</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      );
+                    })()}
                   </div>
                 )}
               </div>
             );
           })
         )}
+      </section>
+
+      {/* 2.5 ENGINEERING KNOWLEDGE HUB & TOOLS BANNER (Level 7 Additive Integration) */}
+      <section className="p-6 bg-sky-50/70 border border-sky-200 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="space-y-1 text-left">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 font-sans flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-sky-600" />
+            Looking for Complete Technical Articles or Project Checklists?
+          </h3>
+          <p className="text-xs text-slate-600">
+            Browse our Knowledge Hub containing 10 in-depth PEB guides, downloadable procurement checklists, and interactive cost estimators.
+          </p>
+        </div>
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+          <button
+            onClick={() => onNavigate('resources/knowledge-hub')}
+            className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer"
+          >
+            Knowledge Hub
+          </button>
+          <button
+            onClick={() => onNavigate('resources/tools/peb-requirement-estimator')}
+            className="px-4 py-2 bg-white hover:bg-sky-50 text-slate-800 font-bold text-xs uppercase tracking-wider rounded-lg border border-sky-200 transition-colors cursor-pointer"
+          >
+            PEB Estimator
+          </button>
+        </div>
       </section>
 
       {/* 3. UNANSWERED QUESTION BOX */}
